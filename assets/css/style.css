@@ -435,3 +435,48 @@ header {
     border-radius: 80px;
     height: 500px;
 }
+
+.sub {
+    margin: 136px auto 0;
+    background-color: #EFF1F9;
+}
+
+.sub .heading-sub {
+    padding-top: 110px;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.sub .input {
+    display: block;
+    margin: 46px auto 0;
+    width: 400px;
+    border: none;
+    background-color: #EFF1F9;
+    border-bottom: 2px solid #2E9CCA;
+}
+
+.sub .text-sub {
+    text-align: center;
+    margin-top: 34px;
+    color: #7B88A8;
+    font-weight: lighter;
+    font-size: 14px;
+}
+
+.sub button {
+    font-family: "JetBrains Mono", sans-serif;
+    display: block;
+    margin: 40px auto 0;
+    font-size: 18px;
+    background-color: #2E9CCA;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 30px;
+    border: none;
+}
+
+.sub .tep {
+    padding-top: 100px;
+}
