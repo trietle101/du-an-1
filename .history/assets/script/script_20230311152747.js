@@ -19,13 +19,10 @@ window.addEventListener("load", function () {
   });
 
   const nav = document.querySelectorAll(".nav__link");
-  nav.forEach((item) => {
-    item.addEventListener("click", () => {
-      nav.forEach((item) => {
-        item.classList.remove("active");
-      });
-      item.classList.add("active");
-    });
+  const navActive = document.querySelector(".nav__link.active");
+  nav.addEventListener("click", () => {
+    nav.classList.add("active");
+    navActive.classList.remove("active");
   });
 
   // --- Login ---

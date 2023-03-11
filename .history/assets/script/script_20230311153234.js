@@ -18,15 +18,13 @@ window.addEventListener("load", function () {
     line.style.width = 0;
   });
 
-  const nav = document.querySelectorAll(".nav__link");
-  nav.forEach((item) => {
+  const navActive = document.querySelector(".nav__link.active");
+  links.forEach((item) =>
     item.addEventListener("click", () => {
-      nav.forEach((item) => {
-        item.classList.remove("active");
-      });
-      item.classList.add("active");
-    });
-  });
+      links.classList.add("active");
+      navActive.classList.remove("active");
+    })
+  );
 
   // --- Login ---
   const registerButton = document.querySelector("#register");

@@ -13,19 +13,9 @@ window.addEventListener("load", function () {
     line.style.left = `${left}px`;
     line.style.top = `${top + height + offsetBottom}px`;
   }
-  const menu = document.querySelector(".nav__list");
+  const menu = document.querySelectorAll(".nav__list");
   menu.addEventListener("mouseleave", function () {
     line.style.width = 0;
-  });
-
-  const nav = document.querySelectorAll(".nav__link");
-  nav.forEach((item) => {
-    item.addEventListener("click", () => {
-      nav.forEach((item) => {
-        item.classList.remove("active");
-      });
-      item.classList.add("active");
-    });
   });
 
   // --- Login ---

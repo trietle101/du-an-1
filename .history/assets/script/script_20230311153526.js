@@ -19,14 +19,7 @@ window.addEventListener("load", function () {
   });
 
   const nav = document.querySelectorAll(".nav__link");
-  nav.forEach((item) => {
-    item.addEventListener("click", () => {
-      nav.forEach((item) => {
-        item.classList.remove("active");
-      });
-      item.classList.add("active");
-    });
-  });
+  console(nav);
 
   // --- Login ---
   const registerButton = document.querySelector("#register");

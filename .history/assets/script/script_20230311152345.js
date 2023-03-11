@@ -18,15 +18,8 @@ window.addEventListener("load", function () {
     line.style.width = 0;
   });
 
-  const nav = document.querySelectorAll(".nav__link");
-  nav.forEach((item) => {
-    item.addEventListener("click", () => {
-      nav.forEach((item) => {
-        item.classList.remove("active");
-      });
-      item.classList.add("active");
-    });
-  });
+  const nav = document.querySelector(".nav__link");
+  const navActive = document.querySelector(".nav__link.active");
 
   // --- Login ---
   const registerButton = document.querySelector("#register");

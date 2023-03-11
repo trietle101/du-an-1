@@ -62,10 +62,6 @@ header {
   text-transform: uppercase;
   transition: 0.3s ease-in-out;
 }
-.nav__link.active {
-  color: var(--secondary-color);
-}
-
 .nav__link:hover {
   color: var(--secondary-color);
 }

@@ -21,9 +21,11 @@ window.addEventListener("load", function () {
   const nav = document.querySelectorAll(".nav__link");
   nav.forEach((item) => {
     item.addEventListener("click", () => {
+      // Xóa lớp "active" khỏi tất cả các menu items
       nav.forEach((item) => {
         item.classList.remove("active");
       });
+      // Thêm lớp "active" vào menu item được chọn
       item.classList.add("active");
     });
   });

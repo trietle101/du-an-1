@@ -60,18 +60,6 @@ header {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
-  transition: 0.3s ease-in-out;
-}
-.nav__link.active {
-  color: var(--secondary-color);
-}
-
-.nav__link:hover {
-  color: var(--secondary-color);
-}
-.nav__link:hover span {
-  color: var(--secondary-color);
-  background-color: #fff;
 }
 .nav__link.absolute {
   position: relative;
@@ -88,7 +76,6 @@ header {
   border-radius: 50%;
   top: -10px;
   left: 10px;
-  transition: 0.3s ease-in-out;
 }
 .line-effect {
   width: 0;
