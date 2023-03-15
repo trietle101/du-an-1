@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/cart.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/08ee78edd1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="header-nav">
+          <a href="#" class="header-logo">
+            <img src="./img/logo.png" />
+            <span>ROBO PET</span>
+          </a>
+
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="../index.html" class="nav__link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="./about.html" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="./shop.html" class="nav__link active">Robo shop</a>
+            </li>
+            <li class="nav__item">
+              <a href="./blog.html" class="nav__link">Blogs</a>
+            </li>
+            <li class="nav__item">
+              <a href="./contact.html" class="nav__link">Contact</a>
+            </li>
+          </ul>
+
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="" class="nav__link"
+                ><i class="fa-solid fa-magnifying-glass"></i
+              ></a>
+            </li>
+            <li class="nav__item">
+              <a href="./cart.html" class="nav__link absolute">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>0</span>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="../login.html" class="nav__link"
+                ><i class="fa-solid fa-user"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-banner">
+        <div class="container">
+          <h1 class="banner-title">Cart</h1>
+        </div>
+      </div>
+    </header>
+    <section class="cart">
+      <div class="container">
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Product</td>
+              <td>Price</td>
+              <td>Quantity</td>
+              <td>Subtotal</td>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="item">
+              <td>
+                <a href="#"><i class="fas fa-times icon"></i></a>
+              </td>
+              <td>
+                <img src="./img/outstanding/img emo/emo.png" alt="" />
+              </td>
+              <td><h5>Emo</h5></td>
+              <td><h5>$279.99</h5></td>
+              <td>
+                <button class="cart-prev">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input type="number" name="" value="2" />
+                <button class="cart-next">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </td>
+              <td><h5>$559.98</h5></td>
+            </tr>
+            <tr class="item">
+              <td>
+                <a href="#"><i class="fas fa-times icon"></i></a>
+              </td>
+              <td>
+                <img
+                  src="././img/AI/img eillik/Frame_1__89_-removebg-preview.png"
+                  alt=""
+                />
+              </td>
+              <td><h5>Eilik Blue</h5></td>
+              <td><h5>$139.99</h5></td>
+              <td>
+                <button class="cart-prev">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input type="number" name="" value="1" />
+                <button class="cart-next">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </td>
+              <td><h5>$139.99</h5></td>
+            </tr>
+          </tbody>
+
+          <thead>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Product</td>
+              <td>Price</td>
+              <td>Quantity</td>
+              <td>Subtotal</td>
+            </tr>
+          </thead>
+        </table>
+        <div class="cart-right">
+          <!-- <div class="cart-none"></div> -->
+          <div class="cart-bottom">
+            <h3 class="cart-title">Cart Total</h3>
+            <div class="cart-item">
+              <div class="cart-info">
+                <h4 class="cart-name">Subtotal</h4>
+                <span class="cart-price">$699.97</span>
+              </div>
+              <hr />
+              <div class="cart-info">
+                <h4 class="cart-name">Shipping</h4>
+                <span class="cart-price">$5.00</span>
+              </div>
+              <hr />
+              <div class="cart-info">
+                <h4 class="cart-name">Total</h4>
+                <span class="cart-price">$704.97</span>
+              </div>
+              <hr />
+            </div>
+            <div class="cart-low">
+              <a href="./checkout.html">
+                <button class="cart-button">Proceed to checkout</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="footer">
+          <section class="footer-content">
+            <img src="././img/logo.png" alt="" />
+            <span>ROBO PET</span>
+          </section>
+          <section class="footer-content">
+            <h3>Company</h3>
+            <a href="#">about</a>
+            <a href="#">work</a>
+            <a href="#">careers</a>
+            <a href="#">pricing</a>
+            <a href="#">blog</a>
+          </section>
+          <section class="footer-content">
+            <h3>Services</h3>
+            <a href="#">branding</a>
+            <a href="#">websites</a>
+            <a href="#">development</a>
+            <a href="#">strategy</a>
+            <a href="#">platforms</a>
+          </section>
+          <section class="footer-content">
+            <h3>Contact</h3>
+            <a href="#">help desk</a>
+            <a href="#">docs</a>
+            <a href="#">open a ticket</a>
+            <a href="#">chat</a>
+            <a href="#">forum</a>
+          </section>
+          <section class="footer-content">
+            <h3>Newsletter</h3>
+            <p>
+              Subscribe to our newsletter to keep up to date on our marketing,
+              website, design services, and tips.
+            </p>
+            <fieldset class="form">
+              <input type="email" name="newsletter" placeholder="Enter email" />
+              <button>Submit</button>
+            </fieldset>
+            <p>
+              We hate spam as much as you do. We will never, ever send you such
+              emails.
+            </p>
+          </section>
+        </div>
+        <div class="footer">
+          <section class="footer-content">
+            <p>
+              © 2023 Robot AI. All Rights Reserved. Terms & Conditions. Privacy
+              Policy.
+            </p>
+          </section>
+          <section class="footer-content">
+            <a href="#"><i class="fa fa-facebook fa-xl"></i></a>
+            <a href="#"><i class="fa fa-twitter fa-xl"></i></a>
+            <a href="#"><i class="fa fa-linkedin fa-xl"></i></a>
+          </section>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="././script/script.js"></script>
+</html>

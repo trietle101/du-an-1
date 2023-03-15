@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="assets/script/slider.js"></script>
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/checkout.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/08ee78edd1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="header-nav">
+          <a href="#" class="header-logo">
+            <img src="assets/img/logo.png" />
+            <span>ROBO PET</span>
+          </a>
+
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="./index.html" class="nav__link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="./about.html" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="./shop.html" class="nav__link active">Robo shop</a>
+            </li>
+            <li class="nav__item">
+              <a href="./blog.html" class="nav__link">Blogs</a>
+            </li>
+            <li class="nav__item">
+              <a href="./contact.html" class="nav__link">Contact</a>
+            </li>
+          </ul>
+
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="" class="nav__link"
+                ><i class="fa-solid fa-magnifying-glass"></i
+              ></a>
+            </li>
+            <li class="nav__item">
+              <a href="./cart.html" class="nav__link absolute">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>0</span>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="./login.html" class="nav__link"
+                ><i class="fa-solid fa-user"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-banner">
+        <div class="container">
+          <h1 class="banner-title">Check out</h1>
+        </div>
+      </div>
+    </header>
+    <section class="checkout">
+      <div class="container">
+        <div class="checkout-box">
+          <div class="checkout-address">
+            <h3 class="checkout-address-title">
+              <span>BILLING ADDRESS</span>
+            </h3>
+            <div class="checkout-address-box">
+              <form action="#">
+                <div class="checkout-address-list">
+                  <div class="checkout-address-item">
+                    <div class="checkout-address-input">
+                      <label>Name</label> <br>
+                      <input type="text" placeholder="Full name">
+                    </div>
+                    <div class="checkout-address-input">
+                      <label>Phone</label> <br>
+                      <input type="number" placeholder="84 .....">
+                    </div>
+                    <div class="checkout-address-input">
+                      <label>Email</label> <br>
+                      <input type="email" placeholder="123@gmail.com">
+                    </div>
+                  </div>
+                  <div class="checkout-address-item">
+                    <div class="checkout-address-input">
+                      <label>Address</label> <br>
+                    <input type="text" placeholder="123 ABC Street">
+                    </div>
+                    <div class="checkout-address-input">
+                      <label>Wards</label> <br>
+                    <input type="text" placeholder="Wards 13">
+                    </div>
+                    <div class="checkout-address-input">
+                      <label>District</label> <br>
+                    <input type="text" placeholder="District 1">
+                    </div>
+                    <div class="checkout-address-input">
+                      <label>Province / City</label> <br>
+                    <input type="text" placeholder="ABC city">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="checkout-total">
+            <h3 class="checkout-total-title">
+              <span>ORDER TOTAL</span>
+            </h3>
+            <div class="checkout-total-box">
+              <h3 class="checkout-total-heading">Products</h3>
+              <div class="checkout-total-item">
+                <div class="checkout-total-info">
+                  <h4 class="checkout-total-name">Eilik Blue</h4>
+                  <span class="checkout-total-quantity">1</span>
+                  <span class="checkout-total-price">$139.99</span>
+                </div>
+                <hr />
+                <div class="checkout-total-info">
+                  <h4 class="checkout-total-name">Emo</h4>
+                  <span class="checkout-total-quantity">2</span>
+                  <span class="checkout-total-price">$559.98</span>
+                </div>
+                <hr />
+                <div class="checkout-total-info">
+                  <h4 class="checkout-total-sub">Total</h4>
+                  <span class="checkout-total-ship">$704.97</span>
+                </div>
+                <div class="checkout-total-info">
+                  <h4 class="checkout-total-sub">Total</h4>
+                  <span class="checkout-total-ship">$704.97</span>
+                </div>
+                <hr />
+                <div class="checkout-total-info">
+                  <h4 class="checkout-total-total">Total</h4>
+                  <span class="checkout-total-total">$704.97</span>
+                </div>
+              </div>
+            </div>
+            <h3 class="checkout-pay-title">
+              <span>PAYMENT</span>
+            </h3>
+            <div class="checkout-total-low">
+              <button class="checkout-total-button">
+                <a href="./checkout.html">Place Order</a>
+              </button>
+            </div>
+          </div>  
+        </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="./assets/script/script.js"></script>
+</html>
