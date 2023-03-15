@@ -43,7 +43,7 @@ window.addEventListener("load", function () {
       if (callNow) func.apply(context, args);
     };
   }
-  const header = document.querySelector(".header-nav");
+  const header = document.querySelector(".header");
   const headerHeight = header && header.offsetHeight;
   window.addEventListener(
     "scroll",
