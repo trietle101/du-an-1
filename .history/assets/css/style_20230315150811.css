@@ -528,7 +528,6 @@ header {
   background-color: #eff1f9;
   position: relative;
   height: 500px;
-  z-index: 1;
 }
 .versatile-bg {
   position: absolute;
