@@ -142,7 +142,6 @@ header {
   display: none;
   font-size: 30px;
   cursor: pointer;
-  color: #fff;
 }
 
 .banner {
@@ -371,7 +370,7 @@ header {
     transform: translateX(100%);
     transition: transform 0.25s ease-in;
   }
-  .header .nav__list.is-expand {
+  .header..nav__list.is-expand {
     transform: translateX(0);
   }
 }

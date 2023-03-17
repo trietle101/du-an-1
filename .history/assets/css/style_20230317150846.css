@@ -22,6 +22,9 @@ header {
   background: var(--primary-color);
   /* padding: 1em 0; */
   width: 100%;
+  background: var(--primary-color);
+  padding: 1em 0;
+  width: 100%;
 }
 
 .container {
@@ -32,6 +35,12 @@ header {
 .header-nav {
   width: 100%;
   margin: 0 auto;
+  background-color: var(--primary-color);
+  /* padding: 20px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
   background-color: var(--primary-color);
   /* padding: 20px; */
 }
@@ -118,6 +127,19 @@ header {
   width: 100%;
   z-index: 100;
   animation: fade 2s forwards 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  animation: fade 2s forwards 1;
+  padding: 20px;
+}
+.header-nav.is-fixed .header-logo {
+  padding-left: 12%;
+}
+.header-nav.is-fixed .nav__list:last-child {
+  padding-right: 12%;
 }
 @keyframes fade {
   from {
@@ -142,7 +164,6 @@ header {
   display: none;
   font-size: 30px;
   cursor: pointer;
-  color: #fff;
 }
 
 .banner {
@@ -277,6 +298,204 @@ header {
   opacity: 38%;
   z-index: 0;
 }
+
+.banner .info {
+  width: 45%;
+  margin-top: 60px;
+}
+
+.info .info-heading {
+  color: #fff;
+  font-weight: 700;
+  font-size: 74px;
+}
+
+.info .info-heading span {
+  color: #2e9cca;
+}
+
+.info .sub-heading {
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 24px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+.button-heading {
+  margin-top: 32px;
+  display: flex;
+  gap: 50px;
+}
+
+.button-heading .view-shop {
+  /* width: 150px; */
+  padding: 20px 30px;
+  height: 45px;
+  border-radius: 50px;
+  border: 1.5px solid #fff;
+  background-color: black;
+  color: #fff;
+  /* font-weight: 600; */
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+.view-shop:hover {
+  background-color: var(--secondary-color);
+}
+.button-heading .demo:hover {
+  background-color: var(--secondary-color);
+}
+
+.button-heading .demo {
+  padding: 20px 30px;
+  height: 45px;
+  border-radius: 50px;
+  border: 1.5px solid #fff;
+  background-color: black;
+  color: #fff;
+  font-family: "JetBrains Mono", sans-serif;
+  /* font-weight: 600; */
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+.demo .video {
+  padding-right: 6px;
+}
+
+.quanlity {
+  margin-top: 120px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.quanlity .happy-user {
+  text-align: center;
+}
+
+.happy-user .quanlity-happy {
+  color: white;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.happy-user .text-happy {
+  color: #c8c8c8;
+  font-size: 14px;
+  padding: 5px 0 20px 0;
+}
+
+.quanlity .active-user {
+  text-align: center;
+}
+
+.active-user .quanlity-active {
+  color: white;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.active-user .text-active {
+  color: #c8c8c8;
+  font-size: 14px;
+  padding: 5px 0 20px 0;
+}
+
+.quanlity .online-user {
+  text-align: center;
+}
+
+.online-user .quanlity-online {
+  color: white;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.online-user .text-online {
+  color: #c8c8c8;
+  font-size: 14px;
+  padding: 5px 0 20px 0;
+}
+
+.slider {
+  width: 55%;
+  position: relative;
+}
+.show {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+.show-item {
+  height: 280px;
+  opacity: 0;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  width: 330px;
+  z-index: 0;
+  background-size: contain;
+  object-fit: cover;
+}
+.show-item-1 {
+  left: 20%;
+  opacity: 1;
+  transform: translateX(-50%);
+  top: 10%;
+  z-index: 2;
+}
+.show-item-2 {
+  opacity: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  top: 15%;
+}
+.show-item-3 {
+  opacity: 1;
+  left: 80%;
+  transform: translateX(-50%);
+  z-index: 2;
+  top: 10%;
+}
+
+.slider .show {
+  width: 550px;
+  height: 550px;
+  border-radius: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(170, 171, 184, 0.7),
+    rgba(0, 17, 61, 0)
+  );
+  margin-left: 83px;
+  margin-top: 30px;
+}
+
+.elip {
+  width: 500px;
+  height: 100px;
+  background-color: #1e1e1e;
+  border-radius: 100%;
+  margin-left: 15px;
+  position: absolute;
+  left: 47%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  opacity: 38%;
+  z-index: 0;
+}
+
 .header-banner {
   width: 100%;
   max-height: 500px;
@@ -370,9 +589,6 @@ header {
     z-index: 10;
     transform: translateX(100%);
     transition: transform 0.25s ease-in;
-  }
-  .header .nav__list.is-expand {
-    transform: translateX(0);
   }
 }
 
