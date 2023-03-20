@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/08ee78edd1.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>AdminHub</title>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+      <a href="#" class="brand">
+        <i class="bx bxs-smile"></i>
+        <span class="text">AdminHub</span>
+      </a>
+      <ul class="side-menu top">
+        <li class="active">
+          <a href="#">
+            <i class="bx bxs-dashboard"></i>
+            <span class="text">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bxs-shopping-bag-alt"></i>
+            <span class="text">My Store</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bxs-doughnut-chart"></i>
+            <span class="text">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bxs-message-dots"></i>
+            <span class="text">Message</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bxs-group"></i>
+            <span class="text">Team</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="side-menu">
+        <li>
+          <a href="#">
+            <i class="bx bxs-cog"></i>
+            <span class="text">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="logout">
+            <i class="bx bxs-log-out-circle"></i>
+            <span class="text">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+    <!-- CONTENT -->
+    <section id="content">
+      <!-- NAVBAR -->
+      <nav>
+        <i class="bx bx-menu"></i>
+        <a href="#" class="nav-link">Categories</a>
+        <form action="#">
+          <div class="form-input">
+            <input type="search" placeholder="Search..." />
+            <button type="submit" class="search-btn">
+              <i class="bx bx-search"></i>
+            </button>
+          </div>
+        </form>
+        <input type="checkbox" id="switch-mode" hidden />
+        <label for="switch-mode" class="switch-mode"></label>
+        <a href="#" class="notification">
+          <i class="bx bxs-bell"></i>
+          <span class="num">8</span>
+        </a>
+        <a href="#" class="profile">
+          <img src="img/people.png" />
+        </a>
+      </nav>
+      <!-- NAVBAR -->
+
+      <!-- MAIN -->
+      <main>
+        <div class="head-title">
+          <div class="left">
+            <h1>Dashboard</h1>
+            <ul class="breadcrumb">
+              <li>
+                <a href="#">Dashboard</a>
+              </li>
+              <li><i class="bx bx-chevron-right"></i></li>
+              <li>
+                <a class="active" href="#">My Store</a>
+              </li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <div class="dropdown__select">
+              <span class="dropdown__selected">Shorting By</span>
+              <i class="fa fa-caret-down dropdown__caret"></i>
+            </div>
+            <ul class="dropdown__list">
+              <?php
+
+              ?>
+              <a
+                href="<?php echo './shop.php?id_pd=2' ?>"
+                class="dropdown__item dropdown__text"
+                >Products</a
+              >
+              <a
+                href="<?php echo './shop.php?id_pd=1' ?>"
+                class="dropdown__item dropdown__text"
+                >Category</a
+              >
+              <a
+                href="<?php echo './shop.php?id_pd=3' ?>"
+                class="dropdown__item dropdown__text"
+                >Image</a
+              >
+            </ul>
+          </div>
+        </div>
+
+        <div class="table-data">
+          <div class="order">
+            <div class="head">
+              <h3>Categorys</h3>
+              <i class="bx bx-search"></i>
+              <i class="bx bx-filter"></i>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Edit</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <p>1</p>
+                  </td>
+                  <td>
+                    <p>1</p>
+                  </td>
+                  <td>
+                    <a href="" class="edit">
+                      <i class="fas fa-tools"></i>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="" class="edit">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- <div class="todo">
+            <div class="head">
+              <h3>Todos</h3>
+              <i class="bx bx-plus"></i>
+              <i class="bx bx-filter"></i>
+            </div>
+            <ul class="todo-list">
+              <li class="completed">
+                <p>Todo List</p>
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </li>
+              <li class="completed">
+                <p>Todo List</p>
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </li>
+              <li class="not-completed">
+                <p>Todo List</p>
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </li>
+              <li class="completed">
+                <p>Todo List</p>
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </li>
+              <li class="not-completed">
+                <p>Todo List</p>
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </li>
+            </ul>
+          </div> -->
+        </div>
+        <!-- <div class="checkout-address">
+          <h3 class="checkout-address-title">
+            <span>Input Category</span>
+          </h3>
+          <div class="checkout-address-box">
+            <form action="#">
+              <div class="checkout-address-list">
+                <div class="checkout-address-item">
+                  <div class="checkout-address-input">
+                    <label>Name</label> <br>
+                    <input type="text" placeholder="Name">
+                  </div>
+                  <div class="checkout-address-input">
+                    <label>Price</label> <br>
+                    <input type="number" placeholder="$">
+                  </div>
+                  <div class="checkout-address-input">
+                    <label>Reduced Price</label> <br>
+                    <input type="number" placeholder="$">
+                  </div>
+                  <div class="checkout-address-input">
+                    <label>Description</label> <br>
+                    <textarea
+                      class="message"
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Description..."
+                      rows="7"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="checkout-address-item">
+                  <div class="checkout-address-input">
+                    <label>Quantity</label> <br>
+                  <input type="number" placeholder="+123">
+                  </div>
+                  <div class="checkout-address-input">
+                    <label>Category</label> <br>
+                    <select name="cate">
+                      <option value="">Emo</option>
+                      <option value="">Emo</option>
+                      <option value="">Emo</option>
+                    </select>
+                  </div>
+                  <div class="checkout-address-input">
+                    <label>Images</label> <br>  
+                  <input type="file" name="image" id="avatar">
+                  </div>
+                  <div class="checkout-address-input">
+                    <label>Image Review</label> <br>
+                    <img src="" alt="" id="avatar-view">
+                  </div>
+                  <div class="checkout-address-input">
+                    <input type="submit" value="Add" class="submit">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div> -->
+        <div class="checkout-address">
+          <h3 class="checkout-address-title">
+            <span>Input Images</span>
+          </h3>
+          <div class="checkout-address-box">
+            <form action="#">
+              <div class="checkout-address-list">
+                <div class="checkout-address-item">
+                  <div class="checkout-address-input">
+                    <label>Images</label> <br />
+                    <input type="file" name="image" id="avatar" />
+                  </div>
+                  <div class="checkout-address-input">
+                    <label>Image Review</label> <br />
+                    <img src="" alt="" id="avatar-view" />
+                  </div>
+                  <div class="checkout-address-input">
+                    <input type="submit" value="Add" class="submit" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+      <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
