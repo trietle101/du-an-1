@@ -19,33 +19,6 @@ menuBar.addEventListener("click", function () {
   sidebar.classList.toggle("hide");
 });
 
-//Dropdown
-const dropdownSelect = document.querySelector(".dropdown__select");
-const dropdownItems = document.querySelectorAll(".dropdown__item");
-const dropdownSelected = document.querySelector(".dropdown__selected");
-const dropdownList = document.querySelector(".dropdown__list");
-const dropdown = document.querySelector(".dropdown");
-const dropdownCaret = document.querySelector(".dropdown__caret");
-// Dropdown select
-dropdownSelect.addEventListener("click", function (event) {
-  dropdownList.classList.toggle("show");
-  dropdownCaret.classList.toggle("fa-caret-up");
-});
-// Dropdown item
-dropdownItems.forEach((item) =>
-  item.addEventListener("click", function (event) {
-    const text = event.target.querySelector(".dropdown__text").textContent;
-    dropdownSelected.textContent = text;
-    dropdownList.classList.remove("show");
-  })
-);
-// Click to document
-document.addEventListener("click", function (e) {
-  if (!dropdown.contains(e.target)) {
-    dropdownList.classList.remove("show");
-  }
-});
-
 const searchButton = document.querySelector(
   "#content nav form .form-input button"
 );
@@ -103,5 +76,21 @@ inputAvatar.addEventListener("change", function () {
     reader.readAsDataURL(avatar);
   } else {
     avatarView.setAttribute("src", "");
+  }
+});
+
+const inputAvatarImage = document.getElementById("avatar-image");
+const avatarViewImage = document.getElementById("avatar-image-view");
+
+inputAvatarImage.addEventListener("change", function () {
+  const avatar = this.files[0];
+  if (avatar) {
+    const reader = new FileReader();
+    reader.addEventListener("load", function () {
+      avatarViewImage.setAttribute("src", reader.result);
+    });
+    reader.readAsDataURL(avatar);
+  } else {
+    avatarViewImage.setAttribute("src", "");
   }
 });

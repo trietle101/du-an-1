@@ -7,6 +7,22 @@
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $offset = ($page - 1) * 8;
     $id = isset($_GET['id_pd']) ? $_GET['id_pd']:'all';
+    if(!isset($_SESSION['cart'])){
+      $_SESSION['cart'] = array();
+  }
+  $_SESSION['qty'] = count($_SESSION['cart']);
+    if(isset($_POST['add-to-cart'])){
+      $product_id = $_POST['id_pd'];
+      $total =$_POST['total'];
+      if(array_key_exists($product_id, $_SESSION['cart'])){
+        $_SESSION['cart'][$product_id]['quantity']++;
+        $_SESSION['cart'][$product_id]['total'] += $total;
+      }else{
+        $_SESSION['cart'][$product_id] = array('id_pd' => $product_id, 'quantity' => 1 ,'total' => $total);
+      }
+      header("Refresh:0");
+      die();
+    }
   ?>
 <div class="header-banner">
         <div class="container">
@@ -26,9 +42,6 @@
                       <i class="fa fa-caret-down dropdown__caret"></i>
                     </div>
                     <ul class="dropdown__list">
-                      <?php
-
-                      ?>
                         <a href="<?php echo './shop.php?id_pd=2' ?>" class="dropdown__item dropdown__text">Emo</a>
                         <a href="<?php echo './shop.php?id_pd=1' ?>" class="dropdown__item dropdown__text">Eilik</a>
                         <a href="<?php echo './shop.php?id_pd=3' ?>" class="dropdown__item dropdown__text">Vector</a>
@@ -62,9 +75,15 @@
                                 ></a>
                               </li>
                               <li class="products-social-item">
-                                <a class="products-social-link" href="#"
-                                  ><i class="fas fa-cart-plus"></i
-                                ></a>
+                                <form action="./shop.php" method="post">
+                                  <input type="hidden" name="id_pd" value="<?php echo $item[0] ?>">
+                                  <input type="hidden" name="total" value="<?php echo $item[3] ?>">
+                                  <a class="products-social-link">
+                                    <button type="submit" name="add-to-cart">
+                                      <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                  </a>
+                                </form>
                               </li>
                               <li class="products-social-item">
                                 <a class="products-social-link" href="#"
@@ -84,7 +103,7 @@
                       </div>
                     <?php } ?>
                 <?php } else{
-                  $stml = $db ->query("select * from products limit 8 offset " . $offset);
+                  $stml = $db ->query("select * from products order by  date_update desc limit 8 offset " . $offset);
                   $products = $stml -> fetchAll(PDO::FETCH_NUM);
                   ?>
                   <?php
@@ -106,9 +125,15 @@
                       ></a>
                     </li>
                     <li class="products-social-item">
-                      <a class="products-social-link" href="#"
-                        ><i class="fas fa-cart-plus"></i
-                      ></a>
+                      <form action="./shop.php" method="post">
+                        <input type="hidden" name="id_pd" value="<?php echo $item[0] ?>">
+                        <input type="hidden" name="total" value="<?php echo $item[3] ?>">
+                        <button type="submit" name="add-to-cart">
+                        <a class="products-social-link">
+                            <i class="fas fa-cart-plus"></i>
+                          </a>
+                        </button>
+                      </form>
                     </li>
                     <li class="products-social-item">
                       <a class="products-social-link" href="#"

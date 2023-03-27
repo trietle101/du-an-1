@@ -5,6 +5,21 @@
   $infoProduct = products_selectID_pd($_GET['id_pd']);
   $infoImage = images_selectID_product($_GET['id_pd']);
   $newProducts = products_new();
+  if(!isset($_SESSION['cart'])){
+    $_SESSION['cart'] = array();
+}
+  if(isset($_POST['add-to-cart'])){
+    $product_id = $_POST['id_pd'];
+    $total = $_POST['total'] * $_POST['quantity'];
+    if(array_key_exists($product_id, $_SESSION['cart'])){
+      $_SESSION['cart'][$product_id]['quantity'] += $_POST['quantity'];
+      $_SESSION['cart'][$product_id]['total'] += $total;
+    }else{
+      $_SESSION['cart'][$product_id] = array('id_pd' => $product_id, 'quantity' => $_POST['quantity'] ,'total' => $total);
+    }
+    $_SESSION['qty'] = count($_SESSION['cart']);
+    header('Location: ./shop.php');
+  }
 ?>
 <div class="header-banner">
         <div class="container">
@@ -49,14 +64,18 @@
             <?php echo $infoProduct[0][5] ?>
             </p>
             <div class="detail-info-quantity">
-              <button class="quantity-prev">
+            <form action="./detail.php" method="post">
+              <input type="hidden" name="id_pd" value="<?php echo $infoProduct[0][0] ?>">
+              <input type="hidden" name="total" value="<?php echo $infoProduct[0][3] ?>">
+              <span class="quantity-prev">
                 <i class="fas fa-minus"></i>
-              </button>
-              <input type="number" name="" value="1" class="input-number" />
-              <button class="quantity-next">
+              </span>
+              <input type="number" name="quantity" value="1" class="input-number" />
+              <span class="quantity-next">
                 <i class="fas fa-plus"></i>
-              </button>
-              <button class="detail-info-button">Add to cart</button>
+              </span>
+              <button type="submit" name='add-to-cart' class="detail-info-button">Add to cart</button>
+            </form>
             </div>
             <div class="dilital-info-icon">
               <i class="far fa-heart"></i> |

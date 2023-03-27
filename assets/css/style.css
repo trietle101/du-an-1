@@ -543,6 +543,13 @@ header {
   font-size: 20px;
   transition: all 0.25s ease;
 }
+.products-social-item button,
+.outstanding-social-item button,
+.custum-social-item button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
 .outstanding-social-link:hover,
 .custum-social-link:hover,
 .products-social-link:hover {
@@ -1756,8 +1763,8 @@ button {
 .checkout-address-input {
   margin-bottom: 30px;
 }
-.checkout-address-item :first-child {
-  margin-right: 30px;
+.checkout-address-item {
+  margin: 10px;
 }
 .checkout-address-input label {
   display: inline-block;
@@ -1774,6 +1781,11 @@ button {
   background-color: #eff1f9;
   border-radius: 5px;
   font-family: "JetBrains Mono", sans-serif;
+}
+.checkout-address-input input::-webkit-outer-spin-button,
+.checkout-address-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .checkout-address-input input::placeholder {
   font-family: "JetBrains Mono", sans-serif;
@@ -1888,9 +1900,6 @@ button {
   }
   .checkout-pay-title::after {
     width: 80%;
-  }
-  .checkout-address-item :first-child {
-    margin-right: 20px;
   }
   .checkout-address-input {
     margin-bottom: 20px;
@@ -2047,7 +2056,9 @@ button {
 
 .quantity-prev,
 .quantity-next {
-  width: 50px;
+  display: inline-block;
+  padding: 16px 18px;
+  /* width: 50px; */
   background-color: var(--secondary-color);
   border: 1px solid #7b88a8;
   transition: 0.3s linear;

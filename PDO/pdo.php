@@ -67,7 +67,7 @@
             $conn = pdo_get_connection();
             $stmt = $conn -> prepare($sql);
             $stmt -> execute($sql_args);
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $rows = $stmt->fetchAll(PDO::FETCH_NUM);
             if(count($rows)>0) return 0;
             else return 1;
         }catch (PDOException $e) {
@@ -83,7 +83,7 @@
             $conn = pdo_get_connection();
             $stmt = $conn -> prepare($sql);
             $stmt -> execute($sql_args);
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $rows = $stmt->fetchAll(PDO::FETCH_NUM);
             if(count($rows)>0) return $rows;
         }catch (PDOException $e) {
             // echo "Connection failed: " . $e->getMessage();

@@ -1,8 +1,13 @@
 <?php
+  session_start();
+  ob_start();
   require './PDO/pdo.php';
   require './PDO/products.php';
   $newProducts = products_new();
   $productCostumes = products_selectID_cate(4);
+  if(isset($_SESSION['cart'])){
+    $_SESSION['qty'] = count($_SESSION['cart']);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +43,7 @@
             <div class="header-menu">
               <ul class="nav__list">
                 <li class="nav__item">
-                  <a href="#" class="nav__link active">Home</a>
+                  <a href="./index.php" class="nav__link active">Home</a>
                 </li>
                 <li class="nav__item">
                   <a href="./assets/about.php" class="nav__link">About</a>
@@ -61,16 +66,34 @@
                 </li>
                 <li class="nav__item">
                   <a href="./assets/cart.php" class="nav__links">
-                    <i class="fa-solid fa-cart-shopping absolute">
+                  <i class="fa-solid fa-cart-shopping absolute">
+                      <?php  
+                      if(isset($_SESSION['cart'])){
+                        ?>
+                      <span><?php echo $_SESSION['qty'] ?></span>
+                      <?php }else{
+                        ?>
                       <span>0</span>
+                        <?php }?>
                     </i>
                   </a>
                 </li>
-                <li class="nav__item">
-                  <a href="./login.html" class="nav__links"
-                    ><i class="fa-solid fa-user"></i
-                  ></a>
-                </li>
+                <?php
+                  if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
+                    ?>
+                  <li class="nav__item">
+                    <a href="./login.html" class="nav__links"
+                      ><?php echo $_SESSION['name'] ?></i
+                    ></a>
+                  </li>
+                  <?php }else{
+                    ?>
+                      <li class="nav__item">
+                        <a href="./login.php" class="nav__links"
+                          ><i class="fa-solid fa-user"></i
+                        ></a>
+                      </li>
+                  <?php }?>
               </ul>
             </div>
           </div>

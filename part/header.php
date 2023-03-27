@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  ob_start();
+  if(isset($_SESSION['cart'])){
+    $_SESSION['qty'] = count($_SESSION['cart']);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,19 +38,22 @@
             <div class="header-menu">
               <ul class="nav__list">
                 <li class="nav__item">
-                  <a href="../index.php" class="nav__link">Home</a>
+                  <a href="../index.php" class="nav__link ">Home</a>
+                </li>
+                <?php
+
+                ?>
+                <li class="nav__item">
+                  <a href="./about.php" class="nav__link <?php if($_SERVER['PHP_SELF'] == '/assets/about.php') {echo 'active';} ?> ">About</a>
                 </li>
                 <li class="nav__item">
-                  <a href="./about.php" class="nav__link">About</a>
+                  <a href="./shop.php" class="nav__link <?php if($_SERVER['PHP_SELF'] == '/assets/shop.php' || $_SERVER['PHP_SELF'] == '/assets/detail.php' || $_SERVER['PHP_SELF'] == '/assets/cart.php' || $_SERVER['PHP_SELF'] == '/assets/checkout.php' ) {echo 'active';} ?>">Robo shop</a>
                 </li>
                 <li class="nav__item">
-                  <a href="./shop.php" class="nav__link">Robo shop</a>
+                  <a href="./blog.php" class="nav__link <?php if($_SERVER['PHP_SELF'] == '/assets/blog.php') {echo 'active';} ?>">Blogs</a>
                 </li>
                 <li class="nav__item">
-                  <a href="./blog.php" class="nav__link">Blogs</a>
-                </li>
-                <li class="nav__item">
-                  <a href="./contact.php" class="nav__link">Contact</a>
+                  <a href="./contact.php" class="nav__link <?php if($_SERVER['PHP_SELF'] == '/assets/.php') {echo 'active';} ?>">Contact</a>
                 </li>
               </ul>
               <ul class="nav__list">
@@ -55,15 +65,33 @@
                 <li class="nav__item">
                   <a href="./cart.php" class="nav__links">
                     <i class="fa-solid fa-cart-shopping absolute">
+                      <?php  
+                      if(isset($_SESSION['cart'])){
+                        ?>
+                      <span><?php echo $_SESSION['qty'] ?></span>
+                      <?php }else{
+                        ?>
                       <span>0</span>
+                        <?php }?>
                     </i>
                   </a>
                 </li>
-                <li class="nav__item">
-                  <a href="./login.php" class="nav__links"
-                    ><i class="fa-solid fa-user"></i
-                  ></a>
-                </li>
+                <?php
+                  if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
+                    ?>
+                  <li class="nav__item">
+                    <a href="./login.php" class="nav__links"
+                      ><?php echo $_SESSION['name'] ?></i
+                    ></a>
+                  </li>
+                  <?php }else{
+                    ?>
+                      <li class="nav__item">
+                        <a href="./login.php" class="nav__links"
+                          ><i class="fa-solid fa-user"></i
+                        ></a>
+                      </li>
+                  <?php }?>
               </ul>
             </div>
           </div>
