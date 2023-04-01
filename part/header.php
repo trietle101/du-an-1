@@ -4,6 +4,11 @@
   if(isset($_SESSION['cart'])){
     $_SESSION['qty'] = count($_SESSION['cart']);
   }
+  if(isset($_GET['id_user'])){
+    unset($_SESSION['id_user']);
+    unset($_SESSION['name']);
+    header('location: index.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +35,7 @@
       <div class="container">
         <nav class="header-nav">
           <div class="container-fixed">
-            <a href="#" class="header-logo">
+            <a href="../index.php" class="header-logo">
               <img src="./img/logo.png" />
               <span>ROBO PET</span>
             </a>
@@ -79,15 +84,21 @@
                 <?php
                   if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
                     ?>
-                  <li class="nav__item">
-                    <a href="./login.php" class="nav__links"
-                      ><?php echo $_SESSION['name'] ?></i
-                    ></a>
+                  <li class="nav__item dropdown">
+                    <div class="dropdown__user">
+                      <span class="nav__links"
+                        ><?php echo $_SESSION['name'] ?></i
+                      ></span>
+                    </div>
+                    <ul class="dropdown__list">
+                        <a href="<?php echo './profile.php' ?>" class="dropdown__item dropdown__text"><i class="fas fa-house-user"></i></a>
+                        <a href="<?php echo '../index.php?id_user'?>" class="dropdown__item dropdown__text"><i class="fas fa-sign-out-alt"></i></a>
+                    </ul>
                   </li>
                   <?php }else{
                     ?>
                       <li class="nav__item">
-                        <a href="./login.php" class="nav__links"
+                        <a href="../login.php" class="nav__links"
                           ><i class="fa-solid fa-user"></i
                         ></a>
                       </li>

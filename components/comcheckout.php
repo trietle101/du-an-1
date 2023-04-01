@@ -9,30 +9,6 @@
   if(isset($_SESSION['id_user'])){
     $checkUser = select_userID($_SESSION['id_user']);
   }
-  if(isset($_POST['checkout'])){
-    if(isset($_POST['id_user'])){
-      $id_user = $_POST['id_user'];
-      $id_pd = $_POST['id_pd'];
-      $address = $_POST['address'].', '.$_POST['wards'].', '.$_POST['district'].', '.$_POST['city'] ;
-    }
-
-    // $stmt = $db->prepare('INSERT INTO bill (total, address, id_user) VALUES (?,?,?)');
-    // $stmt->bindParam(1,$total);
-    // $stmt->bindParam(2,$address);
-    // $stmt->bindParam(3,$id_user);
-    // $stmt->execute();
-    // $id_bill = $db->lastInsertId();
-    
-    // $sql = "INSERT INTO bill_detail (total, quantity, id_bill, id_pd) VALUES ";
-    // $values = array();
-    // foreach ($_SESSION['cart'] as $product) {
-    //     $values[] = "({$product['total']}, {$product['quantity']}, $id_bill, {$product['id_pd']})";
-    // }
-    // $sql .= implode(',', $values);
-    // $slmt = $db->prepare($sql);
-    // $slmt->execute();
-    // unset($_SESSION['cart']);
-  }
 ?>
 <div class="header-banner">
         <div class="container">
@@ -132,7 +108,6 @@
                             <hr />
                             <?php
                             $sum += $subtotal;
-                            $total = $sum + $shiping;
                             ?>
                           <?php }?>
                         <?php }?>
@@ -154,13 +129,14 @@
                     <div class="checkout-total-info">
                       <h4 class="checkout-total-total">Total</h4>
                       <span class="checkout-total-total">$<?php 
-                                echo $total = $sum + $shiping;
-                                ?></span>
+                        if(isset($_SESSION['cart']) && $_SESSION['cart'] != array()){
+                          ?>
+                          <?php
+                          echo $total = $sum + $shiping;
+                          ?>
+                        <?php }?></span>
                     </div>
-                    <input type="hidden" name="total" value="<?php 
-                                echo $total = $sum + $shiping;
-                                ?>">
-                  </div>
+                </div>
                 </div>
               </div>
               <h3 class="checkout-pay-title">
@@ -179,3 +155,37 @@
         </div>
       </div>
     </section>
+    <?php
+    if(isset($_POST['checkout'])){
+      $id_user = $_POST['id_user'];
+      $id_pd = $_POST['id_pd'];
+      $address = $_POST['address'].', '.$_POST['wards'].', '.$_POST['district'].', '.$_POST['city'] ;
+
+      $stmt = $db->prepare('INSERT INTO bill (total, address, id_user) VALUES (?,?,?)');
+      $stmt->bindParam(1,$total);
+      $stmt->bindParam(2,$address);
+      $stmt->bindParam(3,$id_user);
+      $stmt->execute();
+      $id_bill = $db->lastInsertId();
+      
+      $sql = "INSERT INTO bill_detail (total, quantity, id_bill, id_pd) VALUES ";
+      $values = array();
+      foreach ($_SESSION['cart'] as $product) {
+          $values[] = "({$product['total']}, {$product['quantity']}, $id_bill, {$product['id_pd']})";
+      }
+      $sql .= implode(',', $values);
+      $slmt = $db->prepare($sql);
+      $slmt->execute();
+
+      foreach($_SESSION['cart'] as $cart){
+        $listProducts = products_selectID_pd($cart['id_pd']);
+        foreach($listProducts as $item){
+          $updateQuantity = $db->prepare('UPDATE products SET Quantity = '.$item[8] - $_SESSION['cart'][$item[0]]["quantity"] .' WHERE id_pd ='. $item[0]);
+          $updateQuantity->execute();
+        }
+      }
+      unset($_SESSION['cart']);
+      header("Refresh:0");
+      die();
+    }
+    ?>

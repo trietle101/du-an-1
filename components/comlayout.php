@@ -1,3 +1,11 @@
+<?php
+    require '../PDO/pdo.php';
+    require '../PDO/products.php';
+    require '../PDO/images.php';
+    require '../PDO/cate.php';
+    require '../PDO/user.php';
+    require '../PDO/bill.php';
+?>
 <!-- MAIN -->
 <main>
 			<div class="head-title">
@@ -23,21 +31,32 @@
 				<li>
 					<i class='bx bxs-calendar-check' ></i>
 					<span class="text">
-						<h3>1020</h3>
+						<h3><?php echo $oder = count(select_bill()) ?></h3>
 						<p>New Order</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-group' ></i>
 					<span class="text">
-						<h3>2834</h3>
+						<h3><?php echo $user = count(select_userAll()) ?></h3>
 						<p>Visitors</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
-						<h3>$2543</h3>
+						<h3>$
+							<?php
+								$total_price = 0;
+								$totals = select_bill();
+								for ($i = 0; $i < count($totals); $i++) {
+									if ($totals[$i][3] == "success") {
+										$total_price += $totals[$i][1];
+									}
+								}
+								echo $total_price;
+							?>
+						</h3>
 						<p>Total Sales</p>
 					</span>
 				</li>
@@ -60,77 +79,23 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
+							<?php
+								$bills = select_bill();
+								foreach($bills as $item){
+									$users = select_userID($item[5]);
+									?>
+								<tr>
+									<td>
+										<p><?php echo $users[0][1] ?></p>
+									</td>
+									<td><?php echo $item[4] ?></td>
+									<td>
+										<span class="status <?php echo $item[3] ?>"><?php echo $item[3] ?></span>
+									</td>
+								</tr>
+							<?php }?>
 						</tbody>
 					</table>
-				</div>
-				<div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
 				</div>
 			</div>
 		</main>

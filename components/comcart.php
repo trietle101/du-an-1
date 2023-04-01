@@ -85,8 +85,10 @@
                             $id = $_POST['id_pd'];
                             $total = $_POST['total'];
                             if($id == $_SESSION['cart'][$id]['id_pd']){
+                              if($_SESSION['cart'][$id]['quantity'] < $item[8] ){
                                 $_SESSION['cart'][$id]['quantity']++;
                                 $_SESSION['cart'][$id]['total'] += $total;
+                                }
                               }
                               header("Refresh:0");
                             die();

@@ -42,4 +42,16 @@
         return pdo_check($sql, $email, $pass);
     }
 
+    function updatePassword($id, $pass){
+        $sql =  "UPDATE user SET password = ? WHERE id_user = ?";
+        pdo_execute($sql, $pass, $id);
+    }
+    function updatePassword_email($email, $pass){
+        $sql =  "UPDATE user SET password = ? WHERE email = ?";
+        pdo_execute($sql, $pass, $email);
+    }
+    function update_info($name, $phone, $id){
+        $sql = "UPDATE user SET name = ?, phone = ? WHERE id_user = ?";
+        pdo_execute($sql, $name, $phone, $id);
+    }
 ?>

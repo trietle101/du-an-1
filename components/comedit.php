@@ -4,6 +4,7 @@
   require '../PDO/images.php';
   require '../PDO/cate.php';
   require '../PDO/user.php';
+  require '../PDO/bill.php';
   if(isset($_GET['id_pd'])){
     $products = products_selectID_pd($_GET['id_pd']);
   }
@@ -98,6 +99,21 @@
       $role = $_POST['role'];
       update_user($_POST['id_user'], $role);
       header("Location: team.php");
+    }
+  }
+  if(isset($_POST['edit_bill'])){
+    if(isset($_POST['id_bill'])){
+      $status = $_POST['status'];
+      update_bill($status, $_POST['id_bill']);
+      $status = select_bill_id($_POST['id_bill']);
+      if ($status[0][3] == "cancelled") {
+        $bill_details = select_bill_detail($_POST['id_bill']);
+        foreach ($bill_details as $bill){
+          $product = products_selectID_pd($bill[4]);
+          update_quantity(($product[0][8]+$bill[2]), $bill[4]);
+        }
+      }
+      header("Location: analytics.php");
     }
   }
 ?>
@@ -240,6 +256,42 @@
                   </div>
                   <div class="checkout-address-input">
                     <input type="submit" value="Edit" class="submit" name="edit_cate" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+  <?php }?>
+  <?php
+    if(isset($_GET['id_bill'])){
+      $bill = select_bill_id($_GET['id_bill']);
+      ?>
+        <div class="checkout-address">
+          <h3 class="checkout-address-title">
+            <span>Edit Category</span>
+          </h3>
+          <div class="checkout-address-box">
+            <form action="edit.php" method="POST">
+              <input type="hidden" name="id_bill" value="<?php echo $bill[0][0] ?>">
+              <div class="checkout-address-list">
+                <div class="checkout-address-item">
+                  <div class="checkout-address-input">
+                    <label>Status</label> <br />
+                    <input type="text" placeholder="Name" value="<?php echo $bill[0][3] ?>"/>
+                  </div>
+                  <div class="checkout-address-input">
+                    <label>Update Status</label> <br />
+                    <select name="status"> 
+                        <option value="waiting">Waiting</option>
+                        <option value="preparing">Preparing</option>
+                        <option value="delivering">Delivering</option>
+                        <option value="success">Success</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                  </div>
+                  <div class="checkout-address-input">
+                    <input type="submit" value="Edit" class="submit" name="edit_bill" />
                   </div>
                 </div>
               </div>

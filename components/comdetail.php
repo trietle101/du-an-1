@@ -36,7 +36,7 @@
               alt=""
               class="detail-image-main"
               id="image-main"
-            />
+            />  
             <div class="detail-image-list">
               <img
                 src="<?php echo $infoProduct[0][4] ?>"
@@ -74,7 +74,16 @@
               <span class="quantity-next">
                 <i class="fas fa-plus"></i>
               </span>
-              <button type="submit" name='add-to-cart' class="detail-info-button">Add to cart</button>
+              <?php
+                if($infoProduct[0][8] == 0){
+
+                }
+              ?>
+              <button type="submit" name='add-to-cart' class="detail-info-button" <?php
+                if($infoProduct[0][8] == 0){
+                  echo 'style="opacity: 0.5; pointer-events: none"';
+                }
+              ?> >Add to cart</button>
             </form>
             </div>
             <div class="dilital-info-icon">
@@ -86,6 +95,15 @@
             </div>
             <hr />
             <?php
+                if($infoProduct[0][8] == 0){
+                  ?>
+                  <img
+                  src="../assets/img/expired.png"
+                  alt=""
+                  class="detail-info-gif"
+              />
+                <?php }?>
+            <!-- <?php
             if(isset($_GET['id_pd']) && $infoProduct[0][8] == 1){
               ?>
               <img
@@ -120,7 +138,7 @@
                 alt=""
                 class="detail-info-gif"
               />
-            <?php }?>
+            <?php }?> -->
           </div>
         </div>
       </div>

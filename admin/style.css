@@ -479,14 +479,20 @@ body {
   border-radius: 20px;
   font-weight: 700;
 }
-#content main .table-data .order table tr td .status.completed {
+#content main .table-data .order table tr td .status.waiting {
+  background: var(--dark-grey);
+}
+#content main .table-data .order table tr td .status.success {
   background: var(--blue);
 }
-#content main .table-data .order table tr td .status.process {
-  background: var(--yellow);
-}
-#content main .table-data .order table tr td .status.pending {
+#content main .table-data .order table tr td .status.preparing {
   background: var(--orange);
+}
+#content main .table-data .order table tr td .status.delivering {
+  background: green;
+}
+#content main .table-data .order table tr td .status.cancelled {
+  background: var(--red);
 }
 
 #content main .table-data .todo {

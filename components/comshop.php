@@ -36,19 +36,19 @@
           <div class="products-title">
             <h2 class="products-title-left">Products</h2>
             <div class="products-title-right">
-                <div class="dropdown">
-                    <div class="dropdown__select">
-                      <span class="dropdown__selected">Shorting By</span>
-                      <i class="fa fa-caret-down dropdown__caret"></i>
-                    </div>
-                    <ul class="dropdown__list">
-                        <a href="<?php echo './shop.php?id_pd=2' ?>" class="dropdown__item dropdown__text">Emo</a>
-                        <a href="<?php echo './shop.php?id_pd=1' ?>" class="dropdown__item dropdown__text">Eilik</a>
-                        <a href="<?php echo './shop.php?id_pd=3' ?>" class="dropdown__item dropdown__text">Vector</a>
-                        <a href="<?php echo './shop.php?id_pd=4' ?>" class="dropdown__item dropdown__text">Accessories</a>
-                        <a href="<?php echo './shop.php' ?>" class="dropdown__item dropdown__text">All</a>
-                    </ul>
-                  </div>
+              <div class="dropdown">
+                <div class="dropdown__select">
+                  <span class="dropdown__selected">Shorting By</span>
+                  <i class="fa fa-caret-down dropdown__caret"></i>
+                </div>
+                <ul class="dropdown__list">
+                    <a href="<?php echo './shop.php?id_pd=2' ?>" class="dropdown__item dropdown__text">Emo</a>
+                    <a href="<?php echo './shop.php?id_pd=1' ?>" class="dropdown__item dropdown__text">Eilik</a>
+                    <a href="<?php echo './shop.php?id_pd=3' ?>" class="dropdown__item dropdown__text">Vector</a>
+                    <a href="<?php echo './shop.php?id_pd=4' ?>" class="dropdown__item dropdown__text">Accessories</a>
+                    <a href="<?php echo './shop.php' ?>" class="dropdown__item dropdown__text">All</a>
+                </ul>
+              </div>
             </div>
           </div>
           <hr />
@@ -59,6 +59,7 @@
               ?>
               <?php
                     foreach($productsCate as $item){
+                      $id_pd = './detail.php?id_pd='.$item[0];
                       ?>
                       <div class="products-item">
                         <div class="products-main">
@@ -67,6 +68,15 @@
                             src="<?php echo $item[4] ?>"
                             alt=""
                           />
+                          <?php
+                          if($item[8] == 0){
+                            ?>
+                            <img
+                              class="products-expired"
+                              src="../assets/img/expired.png"
+                              alt=""
+                            />
+                          <?php }?>
                           <div class="products-content">
                             <ul class="products-social">
                               <li class="products-social-item">
@@ -74,17 +84,27 @@
                                   ><i class="fas fa-search"></i
                                 ></a>
                               </li>
-                              <li class="products-social-item">
-                                <form action="./shop.php" method="post">
-                                  <input type="hidden" name="id_pd" value="<?php echo $item[0] ?>">
-                                  <input type="hidden" name="total" value="<?php echo $item[3] ?>">
+                              <?php if($item[8] == 0){
+                                ?>
+                                <li class="products-social-item" style="opacity: 0.5; pointer-events: none">
                                   <a class="products-social-link">
-                                    <button type="submit" name="add-to-cart">
-                                      <i class="fas fa-cart-plus"></i>
-                                    </button>
+                                    <i class="fas fa-cart-plus"></i>
                                   </a>
-                                </form>
-                              </li>
+                                </li>
+                              <?php }else{
+                                ?>
+                                <li class="products-social-item">
+                                  <form action="./shop.php" method="post">
+                                    <input type="hidden" name="id_pd" value="<?php echo $item[0] ?>">
+                                    <input type="hidden" name="total" value="<?php echo $item[3] ?>">
+                                    <button type="submit" name="add-to-cart">
+                                      <a class="products-social-link">
+                                        <i class="fas fa-cart-plus"></i>
+                                      </a>
+                                    </button>
+                                  </form>
+                                </li>
+                              <?php }?>
                               <li class="products-social-item">
                                 <a class="products-social-link" href="#"
                                   ><i class="fas fa-heart"></i
@@ -117,24 +137,43 @@
                   src="<?php echo $item[4] ?>"
                   alt=""
                 />
-                <div class="products-content">
+                <?php
+                  if($item[8] == 0){
+                    ?>
+                    <img
+                      class="products-expired"
+                      src="../assets/img/expired.png"
+                      alt=""
+                    />
+                  <?php }?>
+                <div class="products-content" >
                   <ul class="products-social">
                     <li class="products-social-item">
                       <a class="products-social-link" href="<?php echo $id_pd ?>"
                         ><i class="fas fa-search"></i
                       ></a>
                     </li>
-                    <li class="products-social-item">
-                      <form action="./shop.php" method="post">
-                        <input type="hidden" name="id_pd" value="<?php echo $item[0] ?>">
-                        <input type="hidden" name="total" value="<?php echo $item[3] ?>">
-                        <button type="submit" name="add-to-cart">
+                    <?php if($item[8] == 0){
+                      ?>
+                      <li class="products-social-item" style="opacity: 0.5; pointer-events: none">
                         <a class="products-social-link">
-                            <i class="fas fa-cart-plus"></i>
-                          </a>
-                        </button>
-                      </form>
-                    </li>
+                          <i class="fas fa-cart-plus"></i>
+                        </a>
+                      </li>
+                    <?php }else{
+                      ?>
+                      <li class="products-social-item">
+                        <form action="./shop.php" method="post">
+                          <input type="hidden" name="id_pd" value="<?php echo $item[0] ?>">
+                          <input type="hidden" name="total" value="<?php echo $item[3] ?>">
+                          <button type="submit" name="add-to-cart">
+                            <a class="products-social-link">
+                              <i class="fas fa-cart-plus"></i>
+                            </a>
+                          </button>
+                        </form>
+                      </li>
+                    <?php }?>
                     <li class="products-social-item">
                       <a class="products-social-link" href="#"
                         ><i class="fas fa-heart"></i
@@ -142,7 +181,7 @@
                     </li>
                   </ul>
                 </div>
-                <div class="products-info">
+                <div class="products-info"  >
                   <h4 class="products-name"><?php echo $item[1] ?></h4>
                   <div class="products-price">
                     <span>$<?php echo $item[3] ?></span>

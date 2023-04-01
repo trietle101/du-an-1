@@ -8,6 +8,11 @@
   if(isset($_SESSION['cart'])){
     $_SESSION['qty'] = count($_SESSION['cart']);
   }
+  if(isset($_GET['id_user'])){
+    unset($_SESSION['id_user']);
+    unset($_SESSION['name']);
+    header('location: index.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,10 +86,16 @@
                 <?php
                   if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
                     ?>
-                  <li class="nav__item">
-                    <a href="./login.html" class="nav__links"
-                      ><?php echo $_SESSION['name'] ?></i
-                    ></a>
+                  <li class="nav__item dropdown">
+                    <div class="dropdown__user">
+                      <span class="nav__links"
+                        ><?php echo $_SESSION['name'] ?></i
+                      ></span>
+                    </div>
+                    <ul class="dropdown__list">
+                        <a href="<?php echo './assets/profile.php' ?>" class="dropdown__item dropdown__text"><i class="fas fa-house-user"></i></a>
+                        <a href="<?php echo './index.php?id_user='.$_SESSION['id_user'] ?>" class="dropdown__item dropdown__text"><i class="fas fa-sign-out-alt"></i></a>
+                    </ul>
                   </li>
                   <?php }else{
                     ?>
@@ -174,16 +185,20 @@
                   src="<?php echo $item[4] ?>"
                   alt=""
                 />
+                <?php
+                  if($item[8] == 0){
+                    ?>
+                    <img
+                      class="products-expired"
+                      src="../assets/img/expired.png"
+                      alt=""
+                    />
+                <?php }?>
                 <div class="outstanding-content">
                   <ul class="outstanding-social">
                     <li class="outstanding-social-item">
                       <a class="outstanding-social-link" href="<?php echo $id_pd ?>"
                         ><i class="fas fa-search"></i
-                      ></a>
-                    </li>
-                    <li class="outstanding-social-item">
-                      <a class="outstanding-social-link" href="#"
-                        ><i class="fas fa-cart-plus"></i
                       ></a>
                     </li>
                     <li class="outstanding-social-item">
@@ -230,7 +245,7 @@
           <div class="custum-list">
             <?php
               foreach ($productCostumes as $item){
-                $id_pd = './assets/details.php?id_pd='.$item[0];
+                $id_pd = './assets/detail.php?id_pd='.$item[0];
                 ?>
               <div class="custum-item">
                 <div class="custum-main">
@@ -239,16 +254,20 @@
                     src="<?php echo $item[4]?>"
                     alt=""
                   />
+                  <?php
+                  if($item[8] == 0){
+                    ?>
+                    <img
+                      class="products-expired"
+                      src="../assets/img/expired.png"
+                      alt=""
+                    />
+                  <?php }?>
                   <div class="custum-content">
                     <ul class="custum-social">
                       <li class="custum-social-item">
                         <a class="custum-social-link" href="<?php echo $id_pd ?>"
                           ><i class="fas fa-search"></i
-                        ></a>
-                      </li>
-                      <li class="custum-social-item">
-                        <a class="custum-social-link" href="#"
-                          ><i class="fas fa-cart-plus"></i
                         ></a>
                       </li>
                       <li class="custum-social-item">

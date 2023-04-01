@@ -1,6 +1,0 @@
-</section>
-    <!-- CONTENT -->
-
-    <script src="script.js"></script>
-  </body>
-</html>

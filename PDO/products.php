@@ -51,4 +51,8 @@
         $sql = 'DELETE FROM products WHERE id_pd = ?';
         pdo_execute($sql, $id);
     }
+    function update_quantity($quantity, $id){
+        $sql = 'UPDATE products SET Quantity = ? WHERE id_pd = ?';
+        pdo_execute($sql , $quantity, $id);
+    }
 ?>

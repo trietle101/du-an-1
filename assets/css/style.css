@@ -492,6 +492,11 @@ header {
   background-color: #eff1f9;
   border-radius: 10px;
 }
+.products-expired {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .outstanding-info,
 .custum-info,
 .products-info {
@@ -1196,6 +1201,13 @@ header {
 .dropdown__text {
   text-align: center;
 }
+.dropdown__text i {
+  font-size: 20px;
+}
+.dropdown__user {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 767px) {
   .pagination-list a {
     font-size: 12px;
@@ -1435,12 +1447,74 @@ button {
   border-radius: 10px;
   margin-right: 20px;
 }
-
+.profile-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-img {
+  max-width: 350px;
+  border-radius: 50%;
+}
+.profile-item {
+  max-width: 406px;
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+}
+.profile-list {
+  margin-left: 20px;
+}
+.profile-link {
+  color: #2e9cca;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+.profile-link:hover {
+  color: #ccc;
+}
 .contact-item {
   max-width: 406px;
   padding-top: 70px;
   display: flex;
   align-items: center;
+}
+.profile-form {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.profile-infomation {
+  margin-bottom: 20px;
+}
+.profile-form label {
+  display: inline-block;
+  color: white;
+  margin-bottom: 10px;
+}
+.profile-form input {
+  display: inline-block;
+}
+.profile-form button {
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  font-family: "JetBrains Mono", sans-serif;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  padding: 12px 20px;
+  border: none;
+}
+.profile-form button:hover {
+  background-color: var(--primary-color);
+}
+.profile-form input::-webkit-outer-spin-button,
+.profile-form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 @media screen and (max-width: 1279px) {
   .name,
@@ -1984,11 +2058,19 @@ button {
   align-items: flex-start;
   flex-wrap: nowrap;
 }
+.detail-image {
+  position: relative;
+}
 .detail-image-main {
   max-width: 600px;
   height: 600px;
   background-color: #eff1f9;
   border-radius: 20px;
+}
+.detail-image-expired {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .detail-image-list {
   display: flex;
@@ -2566,4 +2648,55 @@ button {
     width: 25px;
     height: 25px;
   }
+}
+.table-data .order {
+  flex-grow: 1;
+  flex-basis: 500px;
+}
+.table-data .order table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-data .order table th {
+  padding-bottom: 12px;
+  font-size: 16px;
+  border-bottom: 1px solid var(--grey);
+  text-align: center;
+  color: #ccc;
+}
+.table-data .order table td {
+  padding: 16px 0;
+  text-align: center;
+  color: #ccc;
+  vertical-align: middle;
+}
+.table-data .order table td a {
+  color: var(--blue);
+  font-size: 20px;
+  transition: 0.3s linear;
+}
+.table-data .order table td a:hover {
+  color: var(--dark);
+}
+.table-data .order table td img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+}
+.table-data .order table tbody tr:hover {
+  background: var(--grey);
+}
+.err {
+  font-size: 12px;
+  color: red;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.complete {
+  font-size: 12px;
+  color: var(--secondary-color);
+  margin: 0;
+  margin-bottom: 10px;
 }
