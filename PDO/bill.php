@@ -10,7 +10,7 @@
     }
 
     function select_bill(){
-        $sql = 'SELECT * FROM bill';
+        $sql = 'SELECT * FROM bill ORDER BY date DESC';
         return pdo_query($sql);
     }
     function select_bill_id($id){

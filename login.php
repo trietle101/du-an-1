@@ -35,18 +35,18 @@
 
     if(strlen($phone) == 10 && strlen($pass) >= 6 && $checkemail != 0 && $checkphone != 0 && $pass == $re_pass){
       insert_user($name, $email, $pass, $phone);
-      $confirm = "Successful account registration";
+        $confirm = "Successful account registration";
         $mail =  new PHPMailer(true);
         $mail -> isSMTP();
         $mail -> Host = 'smtp.gmail.com';
         $mail -> SMTPAuth = true;
-        $mail -> Username = 'toan5802016@gmail.com';
-        $mail -> Password = 'vfsbcosvqxnmutyn';
+        $mail -> Username = 'robotpet2023@gmail.com';
+        $mail -> Password = 'ceasbfjzewsajpiu';
         $mail -> SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail -> Port = 587;
 
 
-        $mail -> setFrom('toan5802016@gmail.com' , 'Robot_Pet');
+        $mail -> setFrom('robotpet2023@gmail.com' , 'Robot_Pet');
         $mail -> addAddress($email);
         $mail -> isHTML(true);
         $mail -> Subject = 'DANG KY TAI KHOAN THANH CONG';
@@ -138,7 +138,7 @@
               <label for="Remember me">Remember me</label>
             </div>
             <div class="pass-link">
-              <a href="#">Forgot password?</a>
+              <a href="./forgot.php">Forgot password?</a>
             </div>
           </div>
           <?php

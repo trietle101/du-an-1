@@ -50,8 +50,10 @@
 								$total_price = 0;
 								$totals = select_bill();
 								for ($i = 0; $i < count($totals); $i++) {
-									if ($totals[$i][3] == "success") {
-										$total_price += $totals[$i][1];
+									if ($totals[$i][3] == "cancelled") {
+										$total_price = $total_price;
+									}else{
+										$total_price +=$totals[$i][1];
 									}
 								}
 								echo $total_price;

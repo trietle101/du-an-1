@@ -23,16 +23,16 @@
       $_SESSION['code'] = substr(custom_uniqid(), 0, 8);
 
       $mail =  new PHPMailer(true);
-      $mail -> isSMTP();
-      $mail -> Host = 'smtp.gmail.com';
-      $mail -> SMTPAuth = true;
-      $mail -> Username = 'toan5802016@gmail.com';
-      $mail -> Password = 'vfsbcosvqxnmutyn';
-      $mail -> SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-      $mail -> Port = 587;
+        $mail -> isSMTP();
+        $mail -> Host = 'smtp.gmail.com';
+        $mail -> SMTPAuth = true;
+        $mail -> Username = 'robotpet2023@gmail.com';
+        $mail -> Password = 'ceasbfjzewsajpiu';
+        $mail -> SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail -> Port = 587;
 
 
-      $mail -> setFrom('toan5802016@gmail.com' , 'Robot_Pet');
+        $mail -> setFrom('robotpet2023@gmail.com' , 'Robot_Pet');
       $mail -> addAddress($email);
       $mail -> isHTML(true);
       $mail -> Subject = 'Forgot Password';
