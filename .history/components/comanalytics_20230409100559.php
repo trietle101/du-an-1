@@ -22,22 +22,22 @@
             </ul>
           </div>
           <div class="dropdown">
-            <div class="dropdown__select">
-            <span class="dropdown__selected">Date</span>
-            <i class="fa fa-caret-down dropdown__caret"></i>
-            </div>
-            <ul class="dropdown__list">
-              <?php
-                for($i = 1; $i <=12 ; $i++){
-                  ?>
-                  <a
-                    href="<?php echo './analytics.php?date='.$i ?>"
-                    class="dropdown__item dropdown__text"
-                    >Month <?php echo $i ?></a
-                  >
-                <?php }?>
-            </ul>
-          </div>
+					<div class="dropdown__select">
+					<span class="dropdown__selected">Date</span>
+					<i class="fa fa-caret-down dropdown__caret"></i>
+					</div>
+					<ul class="dropdown__list">
+						<?php
+							for($i = 1; $i <=12 ; $i++){
+								?>
+								<a
+									href="<?php echo './layout.php?date='.$i ?>"
+									class="dropdown__item dropdown__text"
+									>Month <?php echo $i ?></a
+								>
+							<?php }?>
+					</ul>
+				</div>
         </div>
 
         <div class="table-data">
@@ -63,60 +63,7 @@
               </thead>
               <tbody>
                 <?php
-                    if(isset($_GET['date'])){
-                      $date = selectBillMonth($_GET['date']);
-                      foreach($date as $item){
-                        $users = select_userID($item[5]);
-                        $view = './bill.php?id_bill='.$item[0];
-                        $edit = './edit.php?id_bill='.$item[0];
-                        $remove = './bill.php?id_bill='.$item[0];
-
-                        ?>
-                        <tr>
-                            <td>
-                                <p><?php echo $item[0] ?></p>
-                            </td>
-                            <td>
-                                <p><?php echo $users[0][1] ?></p>
-                            </td>
-                            <td>
-                                <p>$<?php echo $item[1] ?></p>
-                            </td>
-                            <td>
-                                <p><?php echo $item[2] ?></p>
-                            </td>
-                            <td>
-                                <p><?php echo $item[4] ?></p>
-                            </td>
-                            <td>
-                                <p><span class="status <?php echo $item[3] ?>"><?php echo $item[3] ?></span></p>
-                            </td>
-                            <td>
-                                <a href="<?php echo $view ?>" class="edit">
-                                <i class="fas fa-search"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="<?php echo $edit ?>" class="edit" <?php 
-                                if($item[3] == 'cancelled'){
-                                  echo 'style="opacity: 0.5; pointer-events: none;"';
-                                }
-                                  ?> 
-                                >
-                                <i class="fas fa-tools"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="<?php echo $remove ?>" class="edit">
-                                <i class="fas fa-trash-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    <?php }?>
-                  <?php }else{
-                    ?>
-                <?php
-                    $bills = selectBillThisMointh();
+                    $bills = select_bill();
                     foreach($bills as $item){
                         $users = select_userID($item[5]);
                         $view = './bill.php?id_bill='.$item[0];
@@ -165,7 +112,6 @@
                             </td>
                         </tr>
                     <?php }?>
-                  <?php }?>
               </tbody>
             </table>
           </div>

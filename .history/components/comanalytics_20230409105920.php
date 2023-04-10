@@ -113,10 +113,9 @@
                             </td>
                         </tr>
                     <?php }?>
-                  <?php }else{
-                    ?>
-                <?php
-                    $bills = selectBillThisMointh();
+                  <?php }?>
+                <!-- <?php
+                    $bills = select_bill();
                     foreach($bills as $item){
                         $users = select_userID($item[5]);
                         $view = './bill.php?id_bill='.$item[0];
@@ -164,8 +163,7 @@
                                 </a>
                             </td>
                         </tr>
-                    <?php }?>
-                  <?php }?>
+                    <?php }?> -->
               </tbody>
             </table>
           </div>

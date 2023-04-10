@@ -129,7 +129,7 @@
               <p class="err"><?php echo $pass_err ?></p>
             <?php }?>
           <input type="password" placeholder="Re password" name="re_pass" id="re_pass" />
-          <button type="submit" name="register" id="registers" class="disabled" >Register</button>
+          <button type="submit" name="register" id="registers" >Register</button>
           <?php
             if(isset($confirm) && $confirm != ''){
               ?>
@@ -157,7 +157,7 @@
               ?>
               <p class="err"><?php echo $login_err ?></p>
             <?php }?>
-          <button type="submit" name="login" id="logins" class="disabled">Login</button>
+          <button type="submit" name="login" id="logins" >Login</button>
           <span>or use your account</span>
           <div class="social-container">
             <a href="#" class="social">

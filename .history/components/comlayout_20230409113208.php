@@ -98,63 +98,61 @@
 								<p>Total Month</p>
 							</span>
 						</li>
-					<?php }else{
-						?>
-							<li>
-								<i class='bx bxs-calendar-check' ></i>
-								<span class="text">
-									<h3><?php echo $oder = count(selectBillThisMointh()) ?></h3>
-									<p>New Order</p>
-								</span>
-							</li>
-							<li>
-								<i class='bx bxs-group' ></i>
-								<span class="text">
-									<h3><?php echo $user = count(select_userAll()) ?></h3>
-									<p>Visitors</p>
-								</span>
-							</li>
-							<li>
-								<i class='bx bxs-dollar-circle' ></i>
-								<span class="text">
-									<h3>$
-										<?php
-											$total_price = 0;
-											$totals = selectBillThisMointh();
-											for ($i = 0; $i < count($totals); $i++) {
-												if ($totals[$i][3] == "cancelled") {
-													$total_price = $total_price;
-												}else{
-													$total_price +=$totals[$i][1];
-												}
-											}
-											echo $total_price;
-										?>
-									</h3>
-									<p>Total Sales</p>
-								</span>
-							</li>
-							<li>
-								<i class='bx bxs-dollar-circle' ></i>
-								<span class="text">
-									<h3>$
-										<?php
-											$total_price = 0;
-											$totals = selectBillThisMointh();
-											for ($i = 0; $i < count($totals); $i++) {
-												if ($totals[$i][3] == "cancelled") {
-													$total_price = $total_price;
-												}else{
-													$total_price +=$totals[$i][1];
-												}
-											}
-											echo $total_price;
-										?>
-									</h3>
-									<p>Total Month</p>
-								</span>
-							</li>
 					<?php }?>
+				<li>
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">
+						<h3><?php echo $oder = count(selectBillThisMointh()) ?></h3>
+						<p>New Order</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-group' ></i>
+					<span class="text">
+						<h3><?php echo $user = count(select_userAll()) ?></h3>
+						<p>Visitors</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-dollar-circle' ></i>
+					<span class="text">
+						<h3>$
+							<?php
+								$total_price = 0;
+								$totals = selectBillThisMointh();
+								for ($i = 0; $i < count($totals); $i++) {
+									if ($totals[$i][3] == "cancelled") {
+										$total_price = $total_price;
+									}else{
+										$total_price +=$totals[$i][1];
+									}
+								}
+								echo $total_price;
+							?>
+						</h3>
+						<p>Total Sales</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-dollar-circle' ></i>
+					<span class="text">
+						<h3>$
+							<?php
+								$total_price = 0;
+								$totals = selectBillThisMointh();
+								for ($i = 0; $i < count($totals); $i++) {
+									if ($totals[$i][3] == "cancelled") {
+										$total_price = $total_price;
+									}else{
+										$total_price +=$totals[$i][1];
+									}
+								}
+								echo $total_price;
+							?>
+						</h3>
+						<p>Total Month</p>
+					</span>
+				</li>
 			</ul>
 
 
@@ -175,8 +173,7 @@
 						</thead>
 						<tbody>
 							<?php
-								if(isset($_GET['date'])){
-									$bills = selectBillMonth($_GET['date']);
+								$bills = selectBillThisMointh();
 								foreach($bills as $item){
 									$users = select_userID($item[5]);
 									?>
@@ -190,22 +187,6 @@
 									</td>
 								</tr>
 							<?php }?>
-								<?php }else{
-									$bills = selectBillThisMointh();
-									foreach($bills as $item){
-										$users = select_userID($item[5]);
-										?>
-									<tr>
-										<td>
-											<p><?php echo $users[0][1] ?></p>
-										</td>
-										<td><?php echo $item[4] ?></td>
-										<td>
-											<span class="status <?php echo $item[3] ?>"><?php echo $item[3] ?></span>
-										</td>
-									</tr>
-								<?php }?>
-									<?php } ?>
 						</tbody>
 					</table>
 				</div>

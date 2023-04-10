@@ -65,59 +65,7 @@
                 <?php
                     if(isset($_GET['date'])){
                       $date = selectBillMonth($_GET['date']);
-                      foreach($date as $item){
-                        $users = select_userID($item[5]);
-                        $view = './bill.php?id_bill='.$item[0];
-                        $edit = './edit.php?id_bill='.$item[0];
-                        $remove = './bill.php?id_bill='.$item[0];
-
-                        ?>
-                        <tr>
-                            <td>
-                                <p><?php echo $item[0] ?></p>
-                            </td>
-                            <td>
-                                <p><?php echo $users[0][1] ?></p>
-                            </td>
-                            <td>
-                                <p>$<?php echo $item[1] ?></p>
-                            </td>
-                            <td>
-                                <p><?php echo $item[2] ?></p>
-                            </td>
-                            <td>
-                                <p><?php echo $item[4] ?></p>
-                            </td>
-                            <td>
-                                <p><span class="status <?php echo $item[3] ?>"><?php echo $item[3] ?></span></p>
-                            </td>
-                            <td>
-                                <a href="<?php echo $view ?>" class="edit">
-                                <i class="fas fa-search"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="<?php echo $edit ?>" class="edit" <?php 
-                                if($item[3] == 'cancelled'){
-                                  echo 'style="opacity: 0.5; pointer-events: none;"';
-                                }
-                                  ?> 
-                                >
-                                <i class="fas fa-tools"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="<?php echo $remove ?>" class="edit">
-                                <i class="fas fa-trash-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    <?php }?>
-                  <?php }else{
-                    ?>
-                <?php
-                    $bills = selectBillThisMointh();
-                    foreach($bills as $item){
+                      foreach($bills as $item){
                         $users = select_userID($item[5]);
                         $view = './bill.php?id_bill='.$item[0];
                         $edit = './edit.php?id_bill='.$item[0];
@@ -166,6 +114,56 @@
                         </tr>
                     <?php }?>
                   <?php }?>
+                <?php
+                    $bills = select_bill();
+                    foreach($bills as $item){
+                        $users = select_userID($item[5]);
+                        $view = './bill.php?id_bill='.$item[0];
+                        $edit = './edit.php?id_bill='.$item[0];
+                        $remove = './bill.php?id_bill='.$item[0];
+
+                        ?>
+                        <tr>
+                            <td>
+                                <p><?php echo $item[0] ?></p>
+                            </td>
+                            <td>
+                                <p><?php echo $users[0][1] ?></p>
+                            </td>
+                            <td>
+                                <p>$<?php echo $item[1] ?></p>
+                            </td>
+                            <td>
+                                <p><?php echo $item[2] ?></p>
+                            </td>
+                            <td>
+                                <p><?php echo $item[4] ?></p>
+                            </td>
+                            <td>
+                                <p><span class="status <?php echo $item[3] ?>"><?php echo $item[3] ?></span></p>
+                            </td>
+                            <td>
+                                <a href="<?php echo $view ?>" class="edit">
+                                <i class="fas fa-search"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="<?php echo $edit ?>" class="edit" <?php 
+                                if($item[3] == 'cancelled'){
+                                  echo 'style="opacity: 0.5; pointer-events: none;"';
+                                }
+                                  ?> 
+                                >
+                                <i class="fas fa-tools"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="<?php echo $remove ?>" class="edit">
+                                <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php }?>
               </tbody>
             </table>
           </div>

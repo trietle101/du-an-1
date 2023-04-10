@@ -20,11 +20,11 @@ window.addEventListener("load", function () {
 
   function checkRegisters() {
     if (
-      nameInput.value.trim() !== "" &&
-      passInput.value.trim() !== "" &&
-      rePassInput.value.trim() !== "" &&
-      phoneInput.value.trim() !== "" &&
-      emailInput.value.trim() !== ""
+      nameInput.value.trim() === "" ||
+      passInput.value.trim() === "" ||
+      rePassInput.value.trim() === "" ||
+      phoneInput.value.trim() === "" ||
+      emailInput.value.trim() === ""
     ) {
       registers.classList.remove("disabled");
     } else {

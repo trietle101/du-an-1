@@ -175,8 +175,7 @@
 						</thead>
 						<tbody>
 							<?php
-								if(isset($_GET['date'])){
-									$bills = selectBillMonth($_GET['date']);
+								$bills = selectBillThisMointh();
 								foreach($bills as $item){
 									$users = select_userID($item[5]);
 									?>
@@ -190,22 +189,6 @@
 									</td>
 								</tr>
 							<?php }?>
-								<?php }else{
-									$bills = selectBillThisMointh();
-									foreach($bills as $item){
-										$users = select_userID($item[5]);
-										?>
-									<tr>
-										<td>
-											<p><?php echo $users[0][1] ?></p>
-										</td>
-										<td><?php echo $item[4] ?></td>
-										<td>
-											<span class="status <?php echo $item[3] ?>"><?php echo $item[3] ?></span>
-										</td>
-									</tr>
-								<?php }?>
-									<?php } ?>
 						</tbody>
 					</table>
 				</div>

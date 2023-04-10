@@ -20,15 +20,15 @@ window.addEventListener("load", function () {
 
   function checkRegisters() {
     if (
-      nameInput.value.trim() !== "" &&
-      passInput.value.trim() !== "" &&
-      rePassInput.value.trim() !== "" &&
-      phoneInput.value.trim() !== "" &&
-      emailInput.value.trim() !== ""
+      nameInput.value.trim() === "" ||
+      passInput.value.trim() === "" ||
+      rePassInput.value.trim() === "" ||
+      phoneInput.value.trim() === "" ||
+      emailInput.value.trim() === ""
     ) {
-      registers.classList.remove("disabled");
-    } else {
       registers.classList.add("disabled");
+    } else {
+      registers.classList.remove("disabled");
     }
   }
 
@@ -43,10 +43,10 @@ window.addEventListener("load", function () {
   const loginPass = document.querySelector("#login-pass");
 
   function checkInputs() {
-    if (loginEmail.value.trim() !== "" && loginPass.value.trim() !== "") {
-      logins.classList.remove("disabled");
-    } else {
+    if (loginEmail.value.trim() === "" || loginPass.value.trim() === "") {
       logins.classList.add("disabled");
+    } else {
+      logins.classList.remove("disabled");
     }
   }
 

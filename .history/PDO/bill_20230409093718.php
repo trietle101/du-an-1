@@ -35,11 +35,5 @@
 
     function selectBillThisMointh(){
         $sql = 'SELECT * FROM bill WHERE MONTH(date) = MONTH(CURRENT_DATE())';
-        return pdo_query($sql);
-    }
-
-    function selectBillMonth($month){
-        $sql = 'SELECT * FROM bill WHERE MONTH(date) = ?';
-        return pdo_query($sql, $month);
     }
 ?>

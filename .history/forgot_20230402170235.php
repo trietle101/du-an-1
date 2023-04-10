@@ -56,13 +56,12 @@
     $rePass = $_POST['re-pass'];
     if($pass == '' || $rePass == ''){
       $err = 'Do not leave blank';
+    }
+    if($pass == $rePass){
+      updatePassword_email($_SESSION['email'], $pass);
+      $cp = 'Change password successfully';
     }else{
-      if($pass == $rePass){
-        updatePassword_email($_SESSION['email'], $pass);
-        $cp = 'Change password successfully';
-      }else{
-        $err = 'New password does not match';
-      }
+      $err = 'New password does not match';
     }
   }
 ?>
@@ -167,14 +166,6 @@
                     <p class="err"><?php echo $err ?></p>
                   <?php }?>
                 <button type="submit" name="forgot" id="logins">Submit</button>
-                <div class="content">
-                  <div class="checkbox">
-                    <label for="Remember me">Come back</label>
-                  </div>
-                  <div class="pass-link">
-                    <a href="./login.php">Login</a>
-                  </div>
-                </div>
               </form>
             </div>
             <div class="overlay-container">
