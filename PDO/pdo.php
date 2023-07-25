@@ -23,7 +23,7 @@
             $stmt = $conn -> prepare($sql);
             $stmt -> execute($sql_args);
         } catch (PDOException $e) {
-            // echo "Connection failed: " . $e->getMessage();
+            echo "Connection failed: " . $e->getMessage();
         }
         finally{
             unset($conn);
