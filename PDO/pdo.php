@@ -1,11 +1,11 @@
 <?php
     function pdo_get_connection(){
-        // $servername = "gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	";
-        // $username = "srmj5rykmlxl2833";
-        // $password = "sbsivpzobmlr1mxq";
+        $servername = "gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+        $username = "srmj5rykmlxl2833";
+        $password = "sbsivpzobmlr1mxq";
 
         try {
-            $conn = new PDO("mysql://srmj5rykmlxl2833:sbsivpzobmlr1mxq@gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/a73gdrc8msqutu9e");
+            $conn = new PDO("mysql:host=$servername;dbname=a73gdrc8msqutu9e", $username, $password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connected successfully";
