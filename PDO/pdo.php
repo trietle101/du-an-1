@@ -1,8 +1,8 @@
 <?php
     function pdo_get_connection(){
-        $servername = "localhost:3308";
-        $username = "root";
-        $password = "";
+        $servername = "gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	";
+        $username = "srmj5rykmlxl2833";
+        $password = "sbsivpzobmlr1mxq";
 
         try {
             $conn = new PDO("mysql:host=$servername;dbname=robot_pet", $username, $password);

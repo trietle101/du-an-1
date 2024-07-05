@@ -202,19 +202,20 @@
           <?php
             $all = $db->query("SELECT * FROM products");
             if($page >= 2){
-              echo ' <a href="?page=' . $page - 1 . '" class="prev"
-              ><i class="fas fa-chevron-left"></i></a>';
-            }
+              ?>
+              <a href="<?php echo '?page='. $page - 1 . ''?>" class="prev"
+              ><i class="fas fa-chevron-left"></i></a>
+            <?php }
             for($i = 1; $i <= ceil($all->rowCount() / 8); $i++){
               echo '<a href="?page=' . $i . '" class="'.($i == $page? 'active': '').'">' . $i . '</a>';
               
             }
             if ($page >= 1 && $page < ceil($all->rowCount() / 8)) {
-              echo '<a href="?page=' . $page + 1 . '" class="next"
+              ?>
+              <a href="<?php echo '?page='. $page + 1 . ''?>" class="next"
               ><i class="fas fa-angle-right"></i></i
-            ></a>';
-            }
-          ?>
+            ></a>
+            <?php }?>
         </div>
       </div>
     </section>

@@ -8,6 +8,7 @@ const dropdownCaret = document.querySelector(".dropdown__caret");
 dropdownSelect.addEventListener("click", function (event) {
   dropdownList.classList.toggle("show");
   dropdownCaret.classList.toggle("fa-caret-up");
+  console.log(event.target);
 });
 // Dropdown item
 dropdownItems.forEach((item) =>
