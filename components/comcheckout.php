@@ -4,7 +4,7 @@
   require '../PDO/images.php';
   require '../PDO/cate.php';
   require '../PDO/user.php';
-  $db = new PDO("mysql:host=gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	;dbname=a73gdrc8msqutu9e","srmj5rykmlxl2833","sbsivpzobmlr1mxq");
+  $db = new PDO("mysql://srmj5rykmlxl2833:sbsivpzobmlr1mxq@gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/a73gdrc8msqutu9e");
   $shiping = 5;
   if(isset($_SESSION['id_user'])){
     $checkUser = select_userID($_SESSION['id_user']);
