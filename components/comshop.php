@@ -3,7 +3,7 @@
     require '../PDO/products.php';
     require '../PDO/images.php';
     require '../PDO/cate.php';
-    $db = new PDO("mysql:host=localhost:3308;dbname=robot_pet","root","");
+    $db = new PDO("mysql:host=gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	;dbname=a73gdrc8msqutu9e","srmj5rykmlxl2833","sbsivpzobmlr1mxq");
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $offset = ($page - 1) * 8;
     $id = isset($_GET['id_pd']) ? $_GET['id_pd']:'all';
