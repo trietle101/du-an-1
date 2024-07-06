@@ -3,7 +3,7 @@
     require '../PDO/products.php';
     require '../PDO/images.php';
     require '../PDO/cate.php';
-    $db = new PDO("mysql://srmj5rykmlxl2833:sbsivpzobmlr1mxq@gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/a73gdrc8msqutu9e");
+    $db = new PDO("mysql:host=gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=a73gdrc8msqutu9e","srmj5rykmlxl2833","sbsivpzobmlr1mxq");
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $offset = ($page - 1) * 8;
     $id = isset($_GET['id_pd']) ? $_GET['id_pd']:'all';
@@ -38,7 +38,7 @@
             <div class="products-title-right">
               <div class="dropdown">
                 <div class="dropdown__select">
-                  <span class="dropdown__selected">Shorting By</span>
+                  <span class="dropdown__selected">Sorting By</span>
                   <i class="fa fa-caret-down dropdown__caret"></i>
                 </div>
                 <ul class="dropdown__list">

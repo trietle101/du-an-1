@@ -173,7 +173,7 @@
     <section class="outstanding">
       <div class="container">
         <div class="outstanding-product">
-          <h2 class="outstanding-title">Outstanding</h2>
+          <h2 class="outstanding-title">Latest releases</h2>
           <div class="outstanding-list">
             <?php
               foreach ($newProducts as $item){
