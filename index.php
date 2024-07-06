@@ -43,7 +43,7 @@
       <nav class="header-nav">
           <div class="container-fixed">
             <a href="./index.php" class="header-logo">
-              <img src="./img/logo.png" />
+              <img src="assets/img/logo.png" />
               <span>ROBO PET</span>
             </a>
             <i class="fas fa-bars header-toggle"></i>
@@ -151,17 +151,17 @@
           <div class="banner-slider">
             <div class="banner-image">
               <img
-                src="./img/AI/img emo/emo.png"
+                src="assets/img/AI/img emo/emo.png"
                 alt=""
                 class="banner-image-item banner-image-item-1"
               />
               <img
-                src="./img/AI/img eillik/Frame_1__98_-removebg-preview.png"
+                src="assets/img/AI/img eillik/Frame_1__98_-removebg-preview.png"
                 alt=""
                 class="banner-image-item banner-image-item-2"
               />
               <img
-                src="./img/AI/img vector/Frame_1__84_-removebg-preview.png"
+                src="assets/img/AI/img vector/Frame_1__84_-removebg-preview.png"
                 alt=""
                 class="banner-image-item banner-image-item-3"
               />
@@ -192,7 +192,7 @@
                     ?>
                     <img
                       class="products-expired"
-                      src="../img/expired.png"
+                      src=".assets/img/expired.png"
                       alt=""
                     />
                 <?php }?>
@@ -261,7 +261,7 @@
                     ?>
                     <img
                       class="products-expired"
-                      src="../img/expired.png"
+                      src=".assets/img/expired.png"
                       alt=""
                     />
                   <?php }?>
@@ -309,7 +309,7 @@
     </section>
     <section class="versatile">
       <div class="container">
-        <img src="./img/Shapes.png" alt="" class="versatile-bg" />
+        <img src="assets/img/Shapes.png" alt="" class="versatile-bg" />
         <h2 class="versatile-title">
           Versatile Interaction Experience <br />
           with Eilik, Emo, and Vector
@@ -324,7 +324,7 @@
       <div class="container">
         <div class="footer-list">
           <div class="footer-logo">
-            <img src="./img/logo.png" alt="" />
+            <img src="assets/img/logo.png" alt="" />
             <h5>ROBO PET</h5>
           </div>
           <div class="footer-center">
@@ -401,6 +401,6 @@
         </div>
       </div>
     </footer>
-    <script src="script/script.js"></script>
+    <script src="assets/script/script.js"></script>
   </body>
 </html>

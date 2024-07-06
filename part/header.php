@@ -36,7 +36,7 @@
       <div class="container">
         <nav class="header-nav">
           <div class="container-fixed">
-            <a href="../assets/index.php" class="header-logo">
+            <a href="../index.php" class="header-logo">
               <img src="./img/logo.png" />
               <span>ROBO PET</span>
             </a>
@@ -44,7 +44,7 @@
             <div class="header-menu">
               <ul class="nav__list">
                 <li class="nav__item">
-                  <a href="../assets/index.php" class="nav__link ">Home</a>
+                  <a href="../index.php" class="nav__link ">Home</a>
                 </li>
                 <?php
 
@@ -93,7 +93,7 @@
                     </div>
                     <ul class="dropdown__list">
                         <a href="<?php echo './profile.php' ?>" class="dropdown__item dropdown__text dropdown__width"><i class="fas fa-house-user"></i></a>
-                        <a href="<?php echo '../assets/index.php?id_user'?>" class="dropdown__item dropdown__text dropdown__width"><i class="fas fa-sign-out-alt"></i></a>
+                        <a href="<?php echo '../index.php?id_user'?>" class="dropdown__item dropdown__text dropdown__width"><i class="fas fa-sign-out-alt"></i></a>
                     </ul>
                   </li>
                   <?php }else{
