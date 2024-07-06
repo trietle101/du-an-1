@@ -22,8 +22,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ROBO PET</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -173,7 +174,7 @@
     <section class="outstanding">
       <div class="container">
         <div class="outstanding-product">
-          <h2 class="outstanding-title">Outstanding</h2>
+          <h2 class="outstanding-title">Latest releases</h2>
           <div class="outstanding-list">
             <?php
               foreach ($newProducts as $item){

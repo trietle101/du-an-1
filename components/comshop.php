@@ -38,7 +38,7 @@
             <div class="products-title-right">
               <div class="dropdown">
                 <div class="dropdown__select">
-                  <span class="dropdown__selected">Shorting By</span>
+                  <span class="dropdown__selected">Sorting By</span>
                   <i class="fa fa-caret-down dropdown__caret"></i>
                 </div>
                 <ul class="dropdown__list">
