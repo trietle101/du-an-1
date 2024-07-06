@@ -73,7 +73,7 @@
             $_SESSION['name'] = $check_info[0][1];
             $_SESSION['id_user'] = $check_info[0][0];
             $_SESSION['role'] = $check_info[0][6];
-            header('Location: ./index.php');
+            header('Location: ./assets/index.php');
           }
       }else{
         $_SESSION['name'] = $check_info[0][1];

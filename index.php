@@ -1,8 +1,8 @@
 <?php
   session_start();
   ob_start();
-  require './PDO/pdo.php';
-  require './PDO/products.php';
+  require '../PDO/pdo.php';
+  require '../PDO/products.php';
   $newProducts = products_new();
   $productCostumes = products_selectID_cate(4);
   if(isset($_SESSION['cart'])){
@@ -43,7 +43,7 @@
       <nav class="header-nav">
           <div class="container-fixed">
             <a href="./index.php" class="header-logo">
-              <img src="assets/img/logo.png" />
+              <img src="./img/logo.png" />
               <span>ROBO PET</span>
             </a>
             <i class="fas fa-bars header-toggle"></i>
@@ -53,16 +53,16 @@
                   <a href="./index.php" class="nav__link active">Home</a>
                 </li>
                 <li class="nav__item">
-                  <a href="./assets/about.php" class="nav__link">About</a>
+                  <a href="./about.php" class="nav__link">About</a>
                 </li>
                 <li class="nav__item">
-                  <a href="./assets/shop.php" class="nav__link">Robo shop</a>
+                  <a href="./shop.php" class="nav__link">Robo shop</a>
                 </li>
                 <li class="nav__item">
-                  <a href="./assets/blog.php" class="nav__link">Blogs</a>
+                  <a href="./blog.php" class="nav__link">Blogs</a>
                 </li>
                 <li class="nav__item">
-                  <a href="./assets/contact.php" class="nav__link">Contact</a>
+                  <a href="./contact.php" class="nav__link">Contact</a>
                 </li>
               </ul>
               <ul class="nav__list">
@@ -72,7 +72,7 @@
                   ></a>
                 </li>
                 <li class="nav__item">
-                  <a href="./assets/cart.php" class="nav__links">
+                  <a href="./cart.php" class="nav__links">
                   <i class="fa-solid fa-cart-shopping absolute">
                       <?php  
                       if(isset($_SESSION['cart'])){
@@ -95,7 +95,7 @@
                       ></span>
                     </div>
                     <ul class="dropdown__list">
-                        <a href="<?php echo './assets/profile.php' ?>" class="dropdown__item dropdown__text dropdown__width"><i class="fas fa-house-user"></i></a>
+                        <a href="<?php echo './profile.php' ?>" class="dropdown__item dropdown__text dropdown__width"><i class="fas fa-house-user"></i></a>
                         <a href="<?php echo './index.php?id_user='.$_SESSION['id_user'] ?>" class="dropdown__item dropdown__text dropdown__width"><i class="fas fa-sign-out-alt"></i></a>
                     </ul>
                   </li>
@@ -123,7 +123,7 @@
               humans over time.
             </p>
             <div class="banner-button">
-              <a href="./assets/shop.php" class="banner-button-item">
+              <a href="./shop.php" class="banner-button-item">
                 <button>Shop now</button>
               </a>
               <a class="banner-button-item">
@@ -151,17 +151,17 @@
           <div class="banner-slider">
             <div class="banner-image">
               <img
-                src="./assets/img/AI/img emo/emo.png"
+                src="./img/AI/img emo/emo.png"
                 alt=""
                 class="banner-image-item banner-image-item-1"
               />
               <img
-                src="./assets/img/AI/img eillik/Frame_1__98_-removebg-preview.png"
+                src="./img/AI/img eillik/Frame_1__98_-removebg-preview.png"
                 alt=""
                 class="banner-image-item banner-image-item-2"
               />
               <img
-                src="./assets/img/AI/img vector/Frame_1__84_-removebg-preview.png"
+                src="./img/AI/img vector/Frame_1__84_-removebg-preview.png"
                 alt=""
                 class="banner-image-item banner-image-item-3"
               />
@@ -178,7 +178,7 @@
           <div class="outstanding-list">
             <?php
               foreach ($newProducts as $item){
-                $id_pd = './assets/detail.php?id_pd='.$item[0];
+                $id_pd = './detail.php?id_pd='.$item[0];
                 ?>
             <div class="outstanding-item">
               <div class="outstanding-main">
@@ -192,7 +192,7 @@
                     ?>
                     <img
                       class="products-expired"
-                      src="../assets/img/expired.png"
+                      src="../img/expired.png"
                       alt=""
                     />
                 <?php }?>
@@ -233,9 +233,9 @@
       <div class="brand-bg">
         <div class="container">
           <div class="brand-logo">
-            <img src="assets/img/brand/enegize.png" alt="" />
-            <img src="assets/img/brand/living3.png" alt="" />
-            <img src="assets/img/brand/Anki.png" alt="" />
+            <img src="img/brand/enegize.png" alt="" />
+            <img src="img/brand/living3.png" alt="" />
+            <img src="img/brand/Anki.png" alt="" />
           </div>
         </div>
       </div>
@@ -247,7 +247,7 @@
           <div class="custum-list">
             <?php
               foreach ($productCostumes as $item){
-                $id_pd = './assets/detail.php?id_pd='.$item[0];
+                $id_pd = './detail.php?id_pd='.$item[0];
                 ?>
               <div class="custum-item">
                 <div class="custum-main">
@@ -261,7 +261,7 @@
                     ?>
                     <img
                       class="products-expired"
-                      src="../assets/img/expired.png"
+                      src="../img/expired.png"
                       alt=""
                     />
                   <?php }?>
@@ -299,24 +299,24 @@
           Eilik, and Vector
         </h4>
         <div class="intelligent-top">
-          <img src="assets/img/Inteligent/eilik1.gif" alt="" />
-          <img src="assets/img/Inteligent/giphy2.gif" alt="" />
+          <img src="img/Inteligent/eilik1.gif" alt="" />
+          <img src="img/Inteligent/giphy2.gif" alt="" />
         </div>
         <div class="intelligent-bottom">
-          <img src="assets/img/Inteligent/intenlen3.gif" alt="" />
+          <img src="img/Inteligent/intenlen3.gif" alt="" />
         </div>
       </div>
     </section>
     <section class="versatile">
       <div class="container">
-        <img src="./assets/img/Shapes.png" alt="" class="versatile-bg" />
+        <img src="./img/Shapes.png" alt="" class="versatile-bg" />
         <h2 class="versatile-title">
           Versatile Interaction Experience <br />
           with Eilik, Emo, and Vector
         </h2>
         <p class="versatile-desc">Intelligent Robots for Home and Education</p>
         <div class="versatile-bottom">
-          <a href="./assets/shop.php" class="versatile-button">View now</a>
+          <a href="./shop.php" class="versatile-button">View now</a>
         </div>
       </div>
     </section>
@@ -324,7 +324,7 @@
       <div class="container">
         <div class="footer-list">
           <div class="footer-logo">
-            <img src="./assets/img/logo.png" alt="" />
+            <img src="./img/logo.png" alt="" />
             <h5>ROBO PET</h5>
           </div>
           <div class="footer-center">
@@ -401,6 +401,6 @@
         </div>
       </div>
     </footer>
-    <script src="assets/script/script.js"></script>
+    <script src="script/script.js"></script>
   </body>
 </html>

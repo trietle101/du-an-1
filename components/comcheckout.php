@@ -33,7 +33,7 @@
             ?>
             <div class="checkout-complete">
               <h3 class="checkout-heading">Your order has been <br> successfully placed</h3>
-              <a href="../index.php" class="checkout-comback">Come Home</a>
+              <a href="../assets/index.php" class="checkout-comback">Come Home</a>
             </div>
           <?php }else{
             ?>
