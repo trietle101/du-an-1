@@ -1,17 +1,17 @@
 <?php
     function pdo_get_connection(){
-        $servername = "gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	";
-        $username = "srmj5rykmlxl2833";
-        $password = "sbsivpzobmlr1mxq";
+        // $servername = "gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	";
+        // $username = "srmj5rykmlxl2833";
+        // $password = "sbsivpzobmlr1mxq";
 
         try {
             $conn = new PDO("mysql://srmj5rykmlxl2833:sbsivpzobmlr1mxq@gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/a73gdrc8msqutu9e");
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // echo "Connected successfully";
+            echo "Connected successfully";
             return $conn;
         } catch (PDOException $e) {
-            // echo "Connection failed: " . $e->getMessage();
+            echo "Connection failed: " . $e->getMessage();
         }
     }
 
@@ -40,7 +40,7 @@
             $rows = $stmt->fetchAll(PDO::FETCH_NUM);
             return $rows;
         }catch (PDOException $e) {
-            // echo "Connection failed: " . $e->getMessage();
+            echo "Connection failed: " . $e->getMessage();
         }
         finally{
             unset($conn);
@@ -55,7 +55,7 @@
             $rows = $stmt->fetch(PDO::FETCH_ASSOC);
             return $rows;
         }catch (PDOException $e) {
-            // echo "Connection failed: " . $e->getMessage();
+            echo "Connection failed: " . $e->getMessage();
         }
         finally{
             unset($conn);
@@ -71,7 +71,7 @@
             if(count($rows)>0) return 0;
             else return 1;
         }catch (PDOException $e) {
-            // echo "Connection failed: " . $e->getMessage();
+            echo "Connection failed: " . $e->getMessage();
         }
         finally{
             unset($conn);
@@ -86,7 +86,7 @@
             $rows = $stmt->fetchAll(PDO::FETCH_NUM);
             if(count($rows)>0) return $rows;
         }catch (PDOException $e) {
-            // echo "Connection failed: " . $e->getMessage();
+            echo "Connection failed: " . $e->getMessage();
         }
         finally{
             unset($conn);
